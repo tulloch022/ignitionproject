@@ -1,0 +1,4 @@
+SELECT 
+	station_number
+FROM
+	stations

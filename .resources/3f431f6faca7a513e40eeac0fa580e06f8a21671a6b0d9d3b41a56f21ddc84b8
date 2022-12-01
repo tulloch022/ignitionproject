@@ -1,0 +1,1 @@
+Delete From tasks Where task_id = :ID

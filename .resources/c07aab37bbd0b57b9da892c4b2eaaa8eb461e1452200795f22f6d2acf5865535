@@ -1,0 +1,12 @@
+SELECT DISTINCT
+	u.username as 'username',
+	ci.contact_value as 'email'
+FROM
+	stations s
+INNER JOIN tasks t ON t.station_number = s.station_number
+INNER JOIN goldusers_users u ON t.user_id = u.id
+INNER JOIN goldusers_user_ci ci ON ci.user_id = u.id
+WHERE
+	s.station_number = :stationNumber AND
+	ci.contact_type = 'email' AND
+	t.complete_date  IS NULL

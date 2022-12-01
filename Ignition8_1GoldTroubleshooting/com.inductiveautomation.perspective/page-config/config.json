@@ -1,0 +1,51 @@
+{
+  "pages": {
+    "/compressors": {
+      "viewPath": "Compressors/Compressors"
+    },
+    "/compressor-events": {
+      "viewPath": "Compressor-Events/Compressor Events"
+    },
+    "/map": {
+      "viewPath": "Map/Map"
+    },
+    "/": {
+      "viewPath": "Towers/Towers"
+    }
+  },
+  "sharedDocks": {
+    "cornerPriority": "top-bottom",
+    "left": [
+      {
+        "viewPath": "Navigation/Menu",
+        "id": "DockedMenu",
+        "viewParams": {},
+        "size": 250,
+        "resizable": false,
+        "iconUrl": "",
+        "modal": true,
+        "show": "onDemand",
+        "anchor": "fixed",
+        "content": "cover",
+        "autoBreakpoint": 600,
+        "handle": "hide"
+      }
+    ],
+    "top": [
+      {
+        "viewPath": "Navigation/Header",
+        "id": "",
+        "viewParams": {},
+        "size": 75,
+        "resizable": false,
+        "iconUrl": "",
+        "modal": false,
+        "show": "visible",
+        "anchor": "fixed",
+        "content": "push",
+        "autoBreakpoint": 480,
+        "handle": "hide"
+      }
+    ]
+  }
+}

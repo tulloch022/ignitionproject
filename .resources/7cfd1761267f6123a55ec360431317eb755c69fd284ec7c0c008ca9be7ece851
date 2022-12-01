@@ -1,0 +1,835 @@
+{
+  "custom": {
+    "query": "North Station"
+  },
+  "params": {
+    "station_number": 1
+  },
+  "propConfig": {
+    "custom.query": {
+      "binding": {
+        "config": {
+          "parameters": {
+            "StationNumber": "{view.params.station_number}"
+          },
+          "queryPath": "DB_stations"
+        },
+        "type": "query"
+      },
+      "persistent": true
+    },
+    "params.station_number": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 187,
+      "width": 940
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Flow totalizer"
+                },
+                "position": {
+                  "basis": "100px",
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "props": {
+                  "elements": [
+                    {
+                      "d": "M874,717 l-874,0 0,188 874,0 0,-188z",
+                      "fill": {
+                        "paint": "#7f7f7f"
+                      },
+                      "name": "path",
+                      "stroke": {
+                        "paint": "#4c4c4c",
+                        "width": "2"
+                      },
+                      "style": {},
+                      "type": "path"
+                    },
+                    {
+                      "d": "M7,858 l859,0 0,39 -859,0 0,-39z",
+                      "fill": {
+                        "paint": "#4c4c4c"
+                      },
+                      "name": "path",
+                      "style": {},
+                      "type": "path"
+                    },
+                    {
+                      "d": "M124,0 l625,0 0,312 -625,0 0,-312z",
+                      "fill": {
+                        "paint": "#7f7f7f"
+                      },
+                      "name": "path",
+                      "stroke": {
+                        "paint": "#4c4c4c",
+                        "width": "2"
+                      },
+                      "style": {},
+                      "type": "path"
+                    },
+                    {
+                      "d": "M218,952 l-94,-16 0,-250 94,-15 0,281z",
+                      "fill": {
+                        "paint": "#7f7f7f"
+                      },
+                      "name": "path",
+                      "stroke": {
+                        "paint": "#4c4c4c",
+                        "width": "2"
+                      },
+                      "style": {},
+                      "type": "path"
+                    },
+                    {
+                      "d": "M218,624 l437,0 0,375 -437,0 0,-375z",
+                      "fill": {
+                        "paint": "#7f7f7f"
+                      },
+                      "name": "path",
+                      "stroke": {
+                        "paint": "#4c4c4c",
+                        "width": "2"
+                      },
+                      "style": {},
+                      "type": "path"
+                    },
+                    {
+                      "d": "M655,952 l94,-16 -1,-250 -93,-15 0,281z",
+                      "fill": {
+                        "paint": "#7f7f7f"
+                      },
+                      "name": "path",
+                      "stroke": {
+                        "paint": "#4c4c4c",
+                        "width": "2"
+                      },
+                      "style": {},
+                      "type": "path"
+                    },
+                    {
+                      "d": "M249,530 l375,0 0,-125 -375,0 0,125z",
+                      "fill": {
+                        "paint": "#000"
+                      },
+                      "name": "path",
+                      "stroke": {
+                        "paint": "#4c4c4c",
+                        "width": "2"
+                      },
+                      "style": {},
+                      "type": "path"
+                    },
+                    {
+                      "d": "M343,405 l187,0 0,-93 -187,0 0,93z",
+                      "fill": {
+                        "paint": "#7f7f7f"
+                      },
+                      "name": "path",
+                      "stroke": {
+                        "paint": "#4c4c4c",
+                        "width": "2"
+                      },
+                      "style": {},
+                      "type": "path"
+                    },
+                    {
+                      "d": "M312,624 l249,0 0,-94 -249,0 0,94z",
+                      "fill": {
+                        "paint": "#7f7f7f"
+                      },
+                      "name": "path",
+                      "stroke": {
+                        "paint": "#4c4c4c",
+                        "width": "2"
+                      },
+                      "style": {},
+                      "type": "path"
+                    },
+                    {
+                      "d": "M187,30 l499,0 0,250 -499,0 0,-250z",
+                      "fill": {
+                        "paint": "#333"
+                      },
+                      "name": "path",
+                      "stroke": {
+                        "paint": "#4c4c4c",
+                        "width": "2"
+                      },
+                      "style": {},
+                      "type": "path"
+                    },
+                    {
+                      "d": "M249,109 l375,0 0,93 -375,0 0,-93z",
+                      "fill": {
+                        "paint": "#ff9"
+                      },
+                      "name": "path",
+                      "style": {},
+                      "type": "path"
+                    },
+                    {
+                      "d": "M631,109 l-7,-7 -375,0 0,14 375,0 -7,-7 14,0 0,-7 -7,0z",
+                      "fill": {
+                        "paint": "#000"
+                      },
+                      "name": "path",
+                      "style": {},
+                      "type": "path"
+                    },
+                    {
+                      "d": "M624,209 l7,-7 0,-93 -14,0 0,93 7,-7 0,14 7,0 0,-7z",
+                      "fill": {
+                        "paint": "#000"
+                      },
+                      "name": "path",
+                      "style": {},
+                      "type": "path"
+                    },
+                    {
+                      "d": "M242,202 l7,7 375,0 0,-14 -375,0 7,7 -14,0 0,7 7,0z",
+                      "fill": {
+                        "paint": "#000"
+                      },
+                      "name": "path",
+                      "style": {},
+                      "type": "path"
+                    },
+                    {
+                      "d": "M249,102 l-7,7 0,93 14,0 0,-93 -7,7 0,-14 -7,0 0,7z",
+                      "fill": {
+                        "paint": "#000"
+                      },
+                      "name": "path",
+                      "style": {},
+                      "type": "path"
+                    },
+                    {
+                      "d": "M327,624 l0,-16 47,-62 125,0 47,62 0,16 -219,0z",
+                      "fill": {
+                        "paint": "#ccc"
+                      },
+                      "name": "path",
+                      "stroke": {
+                        "paint": "#4c4c4c",
+                        "width": "2"
+                      },
+                      "style": {},
+                      "type": "path"
+                    },
+                    {
+                      "cx": "717",
+                      "cy": "30",
+                      "fill": {
+                        "paint": "#666"
+                      },
+                      "name": "circle",
+                      "r": "15",
+                      "stroke": {
+                        "paint": "#4c4c4c",
+                        "width": "2"
+                      },
+                      "style": {},
+                      "type": "circle"
+                    },
+                    {
+                      "cx": "717",
+                      "cy": "280",
+                      "fill": {
+                        "paint": "#666"
+                      },
+                      "name": "circle",
+                      "r": "15",
+                      "style": {},
+                      "type": "circle"
+                    },
+                    {
+                      "cx": "156",
+                      "cy": "30",
+                      "fill": {
+                        "paint": "#666"
+                      },
+                      "name": "circle",
+                      "r": "16",
+                      "style": {},
+                      "type": "circle"
+                    },
+                    {
+                      "cx": "156",
+                      "cy": "280",
+                      "fill": {
+                        "paint": "#666"
+                      },
+                      "name": "circle",
+                      "r": "16",
+                      "style": {},
+                      "type": "circle"
+                    },
+                    {
+                      "d": "M717,46 l0,-31",
+                      "fill": {
+                        "paint": "none"
+                      },
+                      "name": "path",
+                      "stroke": {
+                        "paint": "#4c4c4c",
+                        "width": "2"
+                      },
+                      "style": {},
+                      "type": "path"
+                    },
+                    {
+                      "d": "M733,30 l-32,0",
+                      "fill": {
+                        "paint": "none"
+                      },
+                      "name": "path",
+                      "stroke": {
+                        "paint": "#4c4c4c",
+                        "width": "2"
+                      },
+                      "style": {},
+                      "type": "path"
+                    },
+                    {
+                      "cx": "717",
+                      "cy": "280",
+                      "fill": {
+                        "paint": "none"
+                      },
+                      "name": "circle",
+                      "r": "15",
+                      "stroke": {
+                        "paint": "#4c4c4c",
+                        "width": "2"
+                      },
+                      "style": {},
+                      "type": "circle"
+                    },
+                    {
+                      "d": "M717,296 l0,-31",
+                      "fill": {
+                        "paint": "none"
+                      },
+                      "name": "path",
+                      "stroke": {
+                        "paint": "#4c4c4c",
+                        "width": "2"
+                      },
+                      "style": {},
+                      "type": "path"
+                    },
+                    {
+                      "d": "M733,280 l-32,0",
+                      "fill": {
+                        "paint": "none"
+                      },
+                      "name": "path",
+                      "stroke": {
+                        "paint": "#4c4c4c",
+                        "width": "2"
+                      },
+                      "style": {},
+                      "type": "path"
+                    },
+                    {
+                      "cx": "156",
+                      "cy": "30",
+                      "fill": {
+                        "paint": "none"
+                      },
+                      "name": "circle",
+                      "r": "16",
+                      "stroke": {
+                        "paint": "#4c4c4c",
+                        "width": "2"
+                      },
+                      "style": {},
+                      "type": "circle"
+                    },
+                    {
+                      "d": "M156,46 l0,-31",
+                      "fill": {
+                        "paint": "none"
+                      },
+                      "name": "path",
+                      "stroke": {
+                        "paint": "#4c4c4c",
+                        "width": "2"
+                      },
+                      "style": {},
+                      "type": "path"
+                    },
+                    {
+                      "d": "M171,30 l-31,0",
+                      "fill": {
+                        "paint": "none"
+                      },
+                      "name": "path",
+                      "stroke": {
+                        "paint": "#4c4c4c",
+                        "width": "2"
+                      },
+                      "style": {},
+                      "type": "path"
+                    },
+                    {
+                      "cx": "156",
+                      "cy": "280",
+                      "fill": {
+                        "paint": "none"
+                      },
+                      "name": "circle",
+                      "r": "16",
+                      "stroke": {
+                        "paint": "#4c4c4c",
+                        "width": "2"
+                      },
+                      "style": {},
+                      "type": "circle"
+                    },
+                    {
+                      "d": "M156,296 l0,-31",
+                      "fill": {
+                        "paint": "none"
+                      },
+                      "name": "path",
+                      "stroke": {
+                        "paint": "#4c4c4c",
+                        "width": "2"
+                      },
+                      "style": {},
+                      "type": "path"
+                    },
+                    {
+                      "d": "M171,280 l-31,0",
+                      "fill": {
+                        "paint": "none"
+                      },
+                      "name": "path",
+                      "stroke": {
+                        "paint": "#4c4c4c",
+                        "width": "2"
+                      },
+                      "style": {},
+                      "type": "path"
+                    },
+                    {
+                      "d": "M249,421 l375,0",
+                      "fill": {
+                        "paint": "none"
+                      },
+                      "name": "path",
+                      "stroke": {
+                        "paint": "#7f7f7f",
+                        "width": "2"
+                      },
+                      "style": {},
+                      "type": "path"
+                    },
+                    {
+                      "d": "M624,514 l-375,0",
+                      "fill": {
+                        "paint": "none"
+                      },
+                      "name": "path",
+                      "stroke": {
+                        "paint": "#7f7f7f",
+                        "width": "2"
+                      },
+                      "style": {},
+                      "type": "path"
+                    },
+                    {
+                      "d": "M132,874 l78,0 0,70 -78,-16 0,-54z",
+                      "fill": {
+                        "paint": "#4c4c4c"
+                      },
+                      "name": "path",
+                      "style": {},
+                      "type": "path"
+                    },
+                    {
+                      "d": "M741,874 l-78,0 0,70 78,-16 0,-54z",
+                      "fill": {
+                        "paint": "#4c4c4c"
+                      },
+                      "name": "path",
+                      "style": {},
+                      "type": "path"
+                    }
+                  ],
+                  "style": {
+                    "margin": "5px"
+                  },
+                  "viewBox": "0 0 874 999"
+                },
+                "type": "ia.shapes.svg"
+              },
+              {
+                "meta": {
+                  "name": "LabelStationName"
+                },
+                "position": {
+                  "basis": "30px",
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.query"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "textStyle": {
+                    "classes": "Station_label"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "Flow Meter"
+            },
+            "position": {
+              "basis": "100px",
+              "grow": 1,
+              "shrink": 0
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "overflow": "hidden"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "meta": {
+              "name": "State"
+            },
+            "position": {
+              "basis": "100px",
+              "grow": 1,
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.controlValue": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "1": "{view.params.station_number}"
+                    },
+                    "tagPath": "[default]GoldTest/Station {1}/State"
+                  },
+                  "enabled": false,
+                  "type": "tag"
+                }
+              },
+              "props.indicatorValue": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "1": "{view.params.station_number}"
+                    },
+                    "tagPath": "[default]GoldTest/Station {1}/State"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "controlValue": 1,
+              "states": [
+                {
+                  "selectedStyle": {
+                    "backgroundColor": "#FFF275",
+                    "classes": ""
+                  },
+                  "text": "Faulted",
+                  "unselectedStyle": {
+                    "classes": ""
+                  },
+                  "value": 2
+                },
+                {
+                  "selectedStyle": {
+                    "backgroundColor": "#F84553",
+                    "classes": ""
+                  },
+                  "text": "Off",
+                  "unselectedStyle": {
+                    "classes": ""
+                  },
+                  "value": 0
+                },
+                {
+                  "selectedStyle": {
+                    "backgroundColor": "#7CEA9C",
+                    "classes": ""
+                  },
+                  "text": "Auto",
+                  "unselectedStyle": {
+                    "classes": ""
+                  },
+                  "value": 1
+                }
+              ],
+              "style": {
+                "margin": "10px"
+              }
+            },
+            "type": "ia.input.multi-state-button"
+          },
+          {
+            "meta": {
+              "name": "Flow"
+            },
+            "position": {
+              "basis": "150px",
+              "grow": 1,
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "1": "{view.params.station_number}"
+                    },
+                    "tagPath": "[default]GoldTest/Station {1}/FlowRate"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "segmentFormat": "7 segment",
+              "style": {
+                "margin": "10px"
+              }
+            },
+            "type": "ia.display.led-display"
+          }
+        ],
+        "meta": {
+          "name": "Large"
+        },
+        "position": {
+          "size": "large"
+        },
+        "props": {
+          "justify": "space-around",
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "LabelStationName"
+            },
+            "position": {
+              "basis": "50px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.query"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "classes": "Station_label"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "State"
+            },
+            "position": {
+              "basis": "50px"
+            },
+            "propConfig": {
+              "props.controlValue": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "1": "{view.params.station_number}"
+                    },
+                    "tagPath": "[default]GoldTest/Station {1}/State"
+                  },
+                  "enabled": false,
+                  "type": "tag"
+                }
+              },
+              "props.indicatorValue": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "1": "{view.params.station_number}"
+                    },
+                    "tagPath": "[default]GoldTest/Station {1}/State"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "controlValue": 1,
+              "orientation": "row",
+              "states": [
+                {
+                  "selectedStyle": {
+                    "backgroundColor": "#FFF275",
+                    "classes": ""
+                  },
+                  "text": "Faulted",
+                  "unselectedStyle": {
+                    "classes": ""
+                  },
+                  "value": 2
+                },
+                {
+                  "selectedStyle": {
+                    "backgroundColor": "#F84553",
+                    "classes": ""
+                  },
+                  "text": "Off",
+                  "unselectedStyle": {
+                    "classes": ""
+                  },
+                  "value": 0
+                },
+                {
+                  "selectedStyle": {
+                    "backgroundColor": "#7CEA9C",
+                    "classes": ""
+                  },
+                  "text": "Auto",
+                  "unselectedStyle": {
+                    "classes": ""
+                  },
+                  "value": 1
+                }
+              ],
+              "style": {
+                "margin": "10px"
+              }
+            },
+            "type": "ia.input.multi-state-button"
+          },
+          {
+            "meta": {
+              "name": "Flow"
+            },
+            "position": {
+              "basis": "50px"
+            },
+            "propConfig": {
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "1": "{view.params.station_number}"
+                    },
+                    "tagPath": "[default]GoldTest/Station {1}/FlowRate"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "segmentFormat": "7 segment",
+              "style": {
+                "margin": "10px"
+              }
+            },
+            "type": "ia.display.led-display"
+          }
+        ],
+        "meta": {
+          "name": "Small"
+        },
+        "props": {
+          "direction": "column",
+          "justify": "center"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "props.style.backgroundColor": {
+        "binding": {
+          "config": {
+            "fallbackDelay": 2.5,
+            "mode": "indirect",
+            "references": {
+              "1": "{view.params.station_number}"
+            },
+            "tagPath": "[default]GoldTest/Station {1}/State"
+          },
+          "transforms": [
+            {
+              "fallback": "#FFFFFF",
+              "inputType": "scalar",
+              "mappings": [
+                {
+                  "input": 2,
+                  "output": "#FF0000"
+                }
+              ],
+              "outputType": "color",
+              "type": "map"
+            }
+          ],
+          "type": "tag"
+        }
+      }
+    },
+    "props": {
+      "breakpoint": 700
+    },
+    "type": "ia.container.breakpt"
+  }
+}

@@ -1,0 +1,363 @@
+{
+  "custom": {
+    "data": [
+      {
+        "DateAssigned": {
+          "$": [
+            "ts",
+            192,
+            1668698880755
+          ],
+          "$ts": 1603660953000
+        },
+        "Description": "Clean the station",
+        "StationName": "West Station",
+        "StationNumber": 3,
+        "TaskName": "Clean"
+      }
+    ]
+  },
+  "params": {
+    "taskID": 1
+  },
+  "propConfig": {
+    "custom.data": {
+      "binding": {
+        "config": {
+          "parameters": {
+            "taskID": "{view.params.taskID}"
+          },
+          "queryPath": "PerspectiveTasks"
+        },
+        "transforms": [
+          {
+            "code": "\t# convert the incoming value data\n\tpyData \u003d system.dataset.toPyDataSet(value)\n\t# get the header names\n\theader \u003d pyData.getColumnNames()\n\t# create a blank list so we can append later\n\tnewList \u003d []\n\t \n\t# step through the rows\n\tfor row in pyData:\n\t    # create a new blank dictionary for each row of the data\n\t    newDict \u003d {}\n\t    # use an index to step through each column of the data\n\t    for i in range(len(row)):\n\t        # set name/value pairs\n\t        newDict[ header[i] ] \u003d row[i]\n\t     \n\t    # append the dictionary to list\n\t    newList.append(newDict)\n\t     \n\t# return the results\n\treturn newList",
+            "type": "script"
+          }
+        ],
+        "type": "query"
+      },
+      "persistent": true
+    },
+    "params.taskID": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 451,
+      "width": 345
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "TaskName"
+        },
+        "position": {
+          "breakpoints": [
+            {
+              "colIndex": 0,
+              "name": "sm",
+              "order": 1,
+              "rowIndex": 0,
+              "span": 12
+            },
+            {
+              "colIndex": 0,
+              "name": "md",
+              "order": 1,
+              "rowIndex": 0,
+              "span": 6
+            },
+            {
+              "colIndex": 0,
+              "name": "lg",
+              "order": 1,
+              "rowIndex": 0,
+              "span": 2
+            }
+          ],
+          "height": 60
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.custom.data[0].TaskName"
+              },
+              "transforms": [
+                {
+                  "expression": "\"Task Name: \" + {value}",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "fontSize": "10pt"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Description"
+        },
+        "position": {
+          "breakpoints": [
+            {
+              "colIndex": 0,
+              "name": "sm",
+              "order": 1,
+              "rowIndex": 1,
+              "span": 12
+            },
+            {
+              "colIndex": 0,
+              "name": "md",
+              "order": 1,
+              "rowIndex": 0,
+              "span": 6
+            },
+            {
+              "colIndex": 0,
+              "name": "lg",
+              "order": 1,
+              "rowIndex": 0,
+              "span": 2
+            }
+          ],
+          "height": 60
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.custom.data[0].Description"
+              },
+              "transforms": [
+                {
+                  "expression": "\"Description: \" + {value}",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "fontSize": "10pt"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "DateAssigned"
+        },
+        "position": {
+          "breakpoints": [
+            {
+              "colIndex": 0,
+              "name": "sm",
+              "order": 1,
+              "rowIndex": 2,
+              "span": 12
+            },
+            {
+              "colIndex": 0,
+              "name": "md",
+              "order": 1,
+              "rowIndex": 1,
+              "span": 6
+            },
+            {
+              "colIndex": 0,
+              "name": "lg",
+              "order": 1,
+              "rowIndex": 0,
+              "span": 2
+            }
+          ],
+          "height": 60
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.custom.data[0].DateAssigned"
+              },
+              "transforms": [
+                {
+                  "formatType": "datetime",
+                  "formatValue": {
+                    "date": "short",
+                    "time": "short"
+                  },
+                  "type": "format"
+                },
+                {
+                  "expression": "\"Date Assigned: \" + {value}",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "fontSize": "10pt"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "StationName"
+        },
+        "position": {
+          "breakpoints": [
+            {
+              "colIndex": 0,
+              "name": "sm",
+              "order": 1,
+              "rowIndex": 3,
+              "span": 12
+            },
+            {
+              "colIndex": 0,
+              "name": "md",
+              "order": 1,
+              "rowIndex": 1,
+              "span": 6
+            },
+            {
+              "colIndex": 0,
+              "name": "lg",
+              "order": 1,
+              "rowIndex": 0,
+              "span": 2
+            }
+          ],
+          "height": 60
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.custom.data[0].StationName"
+              },
+              "transforms": [
+                {
+                  "expression": "\"Station Name: \" + {value}",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "fontSize": "10pt"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\t    # Grab values.\n        CompleteDate \u003d system.date.now()\n        ID \u003d self.view.params.taskID\n\t         \n        # Run a query.\n        system.db.runNamedQuery(\"CompleteTask\", {\"CompleteDate\":CompleteDate, \"ID\":ID})"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "CompletePB"
+        },
+        "position": {
+          "breakpoints": [
+            {
+              "colIndex": 0,
+              "name": "sm",
+              "order": 1,
+              "rowIndex": 4,
+              "span": 12
+            },
+            {
+              "colIndex": 4,
+              "name": "md",
+              "order": 1,
+              "rowIndex": 2,
+              "span": 4
+            },
+            {
+              "colIndex": 0,
+              "name": "lg",
+              "order": 1,
+              "rowIndex": 0,
+              "span": 2
+            }
+          ],
+          "height": 60
+        },
+        "props": {
+          "text": "Complete"
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "custom.alarm": {
+        "binding": {
+          "config": {
+            "expression": "if (tag(\"Gold/Station \" + {view.custom.data[0].StationNumber} + \"/State\")\u003d2,true, false)"
+          },
+          "type": "expr"
+        }
+      },
+      "props.style.backgroundColor": {
+        "binding": {
+          "config": {
+            "path": "this.custom.alarm"
+          },
+          "transforms": [
+            {
+              "fallback": "--neutral-20",
+              "inputType": "scalar",
+              "mappings": [
+                {
+                  "input": false,
+                  "output": "--neutral-20"
+                },
+                {
+                  "input": true,
+                  "output": "#FF4747"
+                }
+              ],
+              "outputType": "scalar",
+              "type": "map"
+            }
+          ],
+          "type": "property"
+        }
+      }
+    },
+    "type": "ia.container.column"
+  }
+}

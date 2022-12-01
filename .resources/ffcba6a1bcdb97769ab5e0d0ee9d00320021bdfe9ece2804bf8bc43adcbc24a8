@@ -1,0 +1,2 @@
+SELECT	station_number	AS 'station_number'
+FROM stations

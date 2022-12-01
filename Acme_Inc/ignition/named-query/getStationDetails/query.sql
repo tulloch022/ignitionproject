@@ -1,0 +1,2 @@
+SELECT stations.*
+FROM stations

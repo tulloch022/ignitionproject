@@ -1,0 +1,7 @@
+SELECT
+	s.station_name
+FROM 
+	stations s
+LEFT JOIN tasks t on s.station_number = t.station_number
+WHERE
+	t.task_id = :taskID

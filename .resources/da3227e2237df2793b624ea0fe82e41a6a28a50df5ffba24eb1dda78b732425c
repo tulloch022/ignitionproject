@@ -1,0 +1,14 @@
+SELECT
+	t.task_name AS "Task Name",
+	go.username AS "Username",
+	t.assign_date AS "Task Assigned",
+	t.complete_date AS "Task Completed"
+FROM
+	tasks t
+	INNER JOIN goldusers_users go ON go.id = t.user_id
+WHERE
+	t.station_number = :stationNumber AND
+	t.complete_date IS NOT NULL AND
+	t.complete_date BETWEEN :startTime AND :endTime
+ORDER BY
+	t.station_number, t.assign_date

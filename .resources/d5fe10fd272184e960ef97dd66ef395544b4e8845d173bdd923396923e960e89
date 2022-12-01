@@ -1,0 +1,2 @@
+INSERT INTO tasks (assign_date, task_name, task_description, station_number, user_id)
+VALUES (CURRENT_TIMESTAMP(), :taskName, :taskDescription, (select station_number from stations where station_name = :stationName), (select id from goldusers_users where username = :userName));

@@ -1,0 +1,12 @@
+INSERT INTO tasks 	(task_name, 
+					task_description, 
+					user_id, 
+					station_number, 
+					assign_date)
+			VALUES	(
+					:parameter_task_name,
+					:parameter_task_description,
+					:parameter_user_id,
+					:parameter_station_number,
+					:parameter_assign_date
+					)	

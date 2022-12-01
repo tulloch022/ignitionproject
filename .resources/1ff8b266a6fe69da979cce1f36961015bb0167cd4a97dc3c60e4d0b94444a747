@@ -1,0 +1,8 @@
+SELECT *
+FROM alarm_events 
+WHERE (displaypath = CONCAT("Station ", :stationNumber , " Reverse Flow Rate"))
+AND eventtype = 0
+OR (displaypath = CONCAT("Station ", :stationNumber , " Faulted"))
+AND eventtype = 0
+ORDER BY eventtime DESC
+LIMIT 10

@@ -1,0 +1,21 @@
+select id,Name + ' - '+ CAST(TasksOpen AS varchar) as Name from (SELECT top 1000 u.[id]
+      ,[fname] + ' ' + [lname] as Name
+	  ,sum(CASE 
+		WHEN complete_date is null and t.user_id is not null then 1
+		else 0
+		END) AS TasksOpen
+  FROM [ignition8.1goldtest].[dbo].[goldusers_users] u
+ left join [ignition8.1goldtest].[dbo].[tasks] t on u.id = t.user_id 
+ group by u.id,[fname] + ' ' + [lname] 
+ order by 3 desc ) as table1
+
+ union ALL
+ select id,Name + ' - '+ CAST(TasksOpen AS varchar) as Name from (
+ select 
+ -2 as 'id',
+ 'All Incomplete Tasks' as 'Name'  ,
+ sum(CASE 
+		WHEN complete_date is null then 1
+		else 0
+		END) AS TasksOpen
+ from [ignition8.1goldtest].[dbo].[tasks]) as table2

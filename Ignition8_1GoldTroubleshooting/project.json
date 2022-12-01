@@ -1,0 +1,7 @@
+{
+  "title": "Ignition 8.1 Gold Certification Test - Troubleshooting",
+  "description": "Ignition gold level certification test covering the more advanced features of Ignition: UDTs, templates, indirection, SQL databases, scripting, troubleshooting error messages, and more. It is designed to test your understanding and knowledge of Ignition.",
+  "parent": "global",
+  "enabled": true,
+  "inheritable": false
+}

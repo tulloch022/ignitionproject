@@ -1,0 +1,2 @@
+DELETE FROM tasks
+WHERE task_name = :Task and  station_number = :Station and  user_id = :User ;

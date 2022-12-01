@@ -1,0 +1,6 @@
+Select tasks.task_name as 'TaskName', tasks.task_description as 'Description', tasks.assign_date as 'DateAssigned',
+stations.station_number as 'StationNumber', stations.station_name as 'StationName'
+From stations
+Inner Join tasks
+On stations.station_number = tasks.station_number
+Where tasks.task_id = :taskID

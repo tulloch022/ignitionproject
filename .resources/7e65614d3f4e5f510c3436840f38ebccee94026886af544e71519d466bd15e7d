@@ -1,0 +1,11 @@
+select 
+	tasks.task_id
+,	tasks.task_name
+,	tasks.task_description
+,	tasks.station_number
+,	goldusers_users.username
+,	tasks.assign_date
+,	tasks.complete_date
+from tasks
+left join goldusers_users
+on goldusers_users.id = tasks.user_id

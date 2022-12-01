@@ -1,0 +1,23 @@
+{
+  "base": {
+    "style": {
+      "cursor": "text",
+      "fontSize": "14px",
+      "fontWeight": "bold",
+      "paddingBottom": "3px",
+      "paddingLeft": "3px",
+      "paddingRight": "3px",
+      "paddingTop": "3px",
+      "textAlign": "start",
+      "textTransform": "capitalize"
+    }
+  },
+  "variants": [
+    {
+      "pseudo": "hover",
+      "style": {
+        "fontSize": "16px"
+      }
+    }
+  ]
+}

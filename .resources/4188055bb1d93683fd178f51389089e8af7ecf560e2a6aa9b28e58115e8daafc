@@ -1,0 +1,7 @@
+SELECT goldusers_users.username,
+  goldusers_user_ci.contact_value as email,
+  goldusers_user_ci.contact_type
+FROM tasks
+  INNER JOIN goldusers_users ON tasks.user_id = goldusers_users.id
+  INNER JOIN goldusers_user_ci ON goldusers_users.id = goldusers_user_ci.user_id
+WHERE tasks.station_number = :station_no AND tasks.complete_date IS NULL

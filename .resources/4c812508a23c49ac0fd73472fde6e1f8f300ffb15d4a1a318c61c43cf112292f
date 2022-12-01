@@ -1,0 +1,26 @@
+WITH CTE AS
+(SELECT alarm_events.eventtype, alarm_events.displaypath,
+       ROW_NUMBER() OVER(PARTITION BY alarm_events.displaypath order by alarm_events.eventtime desc)
+       as RN
+FROM alarm_events
+where displaypath like '%Faulted')
+
+, alarm as(
+select 
+	case when eventtype = 2
+		then 1
+		else eventtype
+	end as eventtype
+,	displaypath
+from CTE 
+WHERE RN=1
+)
+
+
+select 
+	stations.station_name
+,	stations.station_number
+from stations
+left join alarm
+on 'Station ' + cast(stations.station_number as varchar) + ' Faulted' = alarm.displaypath
+order by alarm.eventtype desc , stations.station_number

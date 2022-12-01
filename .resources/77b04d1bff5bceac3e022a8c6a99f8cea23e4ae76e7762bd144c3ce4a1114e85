@@ -1,0 +1,2 @@
+SELECT stations.station_name
+FROM stations

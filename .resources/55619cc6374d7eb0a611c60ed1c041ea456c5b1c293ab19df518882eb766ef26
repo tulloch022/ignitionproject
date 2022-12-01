@@ -1,0 +1,7 @@
+SELECT
+	id,
+	username
+FROM
+	goldusers_users
+ORDER BY
+	username

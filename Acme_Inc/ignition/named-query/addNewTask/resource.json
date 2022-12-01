@@ -1,0 +1,56 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "UpdateQuery",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "DB",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "720295e498b4b09cc621468f3b0485d2d4f81ae618687e1afdd0534ead6cb19b",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "admin",
+      "timestamp": "2022-09-30T17:04:14Z"
+    },
+    "syntaxProvider": "class com.adbs.syntax.MySQLSyntaxProvider",
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "taskName",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "taskDescription",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "userName",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "stationName",
+        "sqlType": 7
+      }
+    ]
+  }
+}

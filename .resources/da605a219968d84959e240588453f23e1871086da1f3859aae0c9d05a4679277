@@ -1,0 +1,482 @@
+{
+  "custom": {
+    "SensorNo": 2
+  },
+  "params": {
+    "SenNo": 4
+  },
+  "propConfig": {
+    "custom.SensorNo": {
+      "persistent": true
+    },
+    "params.SenNo": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 359,
+      "width": 323
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "custom": {
+          "SensorNo": 1
+        },
+        "meta": {
+          "name": "Label",
+          "tooltip": {
+            "style": {
+              "borderStyle": "outset",
+              "key": {}
+            }
+          }
+        },
+        "position": {
+          "basis": "56px",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "\"Sensor\" + {view.params.SenNo}"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "borderStyle": "solid",
+            "classes": "Header"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Sensor 1"
+        },
+        "position": {
+          "basis": "128px",
+          "grow": 1
+        },
+        "props": {
+          "elements": [
+            {
+              "elements": [
+                {
+                  "d": "M6.984,0h14.077v84.348H6.984V0z",
+                  "fill": {
+                    "paint": {
+                      "gradientUnits": "userSpaceOnUse",
+                      "stops": [
+                        {
+                          "offset": "0.01",
+                          "style": {
+                            "stopColor": "#4D4D4D"
+                          }
+                        },
+                        {
+                          "offset": "0.51",
+                          "style": {
+                            "stopColor": "#F5F5F5"
+                          }
+                        },
+                        {
+                          "offset": "1",
+                          "style": {
+                            "stopColor": "#4D4D4D"
+                          }
+                        }
+                      ],
+                      "type": "linear",
+                      "x1": "6.9839",
+                      "x2": "21.0605",
+                      "y1": "42.1738",
+                      "y2": "42.1738"
+                    }
+                  },
+                  "name": "path",
+                  "type": "path"
+                },
+                {
+                  "d": "M12.276,84.348h3.492V112.5h-3.492V84.348z",
+                  "fill": {
+                    "paint": {
+                      "gradientUnits": "userSpaceOnUse",
+                      "stops": [
+                        {
+                          "offset": "0.01",
+                          "style": {
+                            "stopColor": "#4D4D4D"
+                          }
+                        },
+                        {
+                          "offset": "0.51",
+                          "style": {
+                            "stopColor": "#F5F5F5"
+                          }
+                        },
+                        {
+                          "offset": "1",
+                          "style": {
+                            "stopColor": "#4D4D4D"
+                          }
+                        }
+                      ],
+                      "type": "linear",
+                      "x1": "12.2759",
+                      "x2": "15.7676",
+                      "y1": "98.4238",
+                      "y2": "98.4238"
+                    }
+                  },
+                  "name": "path",
+                  "type": "path"
+                },
+                {
+                  "d": "M17.568,112.5l-7.093-3.604l7.093-3.491l-8.896-3.491l10.585-3.49   L8.673,94.82l10.585-3.491L6.984,87.838l14.077-3.49",
+                  "fill": {
+                    "paint": "none"
+                  },
+                  "name": "path",
+                  "stroke": {
+                    "paint": "#4C4C4C",
+                    "width": "0.25"
+                  },
+                  "type": "path"
+                }
+              ],
+              "name": "Group_Pipe",
+              "type": "group"
+            },
+            {
+              "elements": [
+                {
+                  "d": "M0.002,22.748h28.041v5.293H0.002V22.748z",
+                  "fill": {
+                    "paint": "#7F7F7F"
+                  },
+                  "name": "path",
+                  "type": "path"
+                },
+                {
+                  "d": "M0.002,8.671h28.041v5.293H0.002V8.671z",
+                  "fill": {
+                    "paint": "#7F7F7F"
+                  },
+                  "name": "path",
+                  "type": "path"
+                },
+                {
+                  "d": "M5.182,8.671H22.75v5.293H5.182V8.671z",
+                  "fill": {
+                    "paint": "#FFFFFF"
+                  },
+                  "name": "path",
+                  "stroke": {
+                    "paint": "#4C4C4C",
+                    "width": "0.25"
+                  },
+                  "type": "path"
+                },
+                {
+                  "d": "M5.182,22.748H22.75v5.293H5.182V22.748z",
+                  "fill": {
+                    "paint": "#FFFFFF"
+                  },
+                  "name": "path",
+                  "stroke": {
+                    "paint": "#4C4C4C",
+                    "width": "0.25"
+                  },
+                  "type": "path"
+                }
+              ],
+              "name": "Group_Sensor",
+              "type": "group"
+            },
+            {
+              "elements": [
+                {
+                  "d": "M6.984,59.686h14.077v8.783H6.984V59.686",
+                  "fill": {
+                    "paint": "none"
+                  },
+                  "name": "path",
+                  "stroke": {
+                    "paint": "#4C4C4C",
+                    "width": "0.25"
+                  },
+                  "type": "path"
+                },
+                {
+                  "d": "M6.984,61.486h14.077v5.18H6.984V61.486",
+                  "fill": {
+                    "paint": "none"
+                  },
+                  "name": "path",
+                  "stroke": {
+                    "paint": "#4C4C4C",
+                    "width": "0.25"
+                  },
+                  "type": "path"
+                },
+                {
+                  "d": "M6.984,63.176h14.077v1.803H6.984V63.176",
+                  "fill": {
+                    "paint": "none"
+                  },
+                  "name": "path",
+                  "stroke": {
+                    "paint": "#4C4C4C",
+                    "width": "0.25"
+                  },
+                  "type": "path"
+                }
+              ],
+              "name": "Group_",
+              "type": "group"
+            },
+            {
+              "elements": [
+                {
+                  "d": "M6.984,70.271h14.077v12.273H6.984V70.271z",
+                  "fill": {
+                    "paint": {
+                      "gradientUnits": "userSpaceOnUse",
+                      "stops": [
+                        {
+                          "offset": "0.01",
+                          "style": {
+                            "stopColor": "#00FF00"
+                          }
+                        },
+                        {
+                          "offset": "0.51",
+                          "style": {
+                            "stopColor": "#ABFFCC"
+                          }
+                        },
+                        {
+                          "offset": "1",
+                          "style": {
+                            "stopColor": "#00FF00"
+                          }
+                        }
+                      ],
+                      "type": "linear",
+                      "x1": "6.9839",
+                      "x2": "21.0605",
+                      "y1": "76.4082",
+                      "y2": "76.4082"
+                    }
+                  },
+                  "name": "path",
+                  "stroke": {
+                    "paint": "#4C4C4C",
+                    "width": "0.25"
+                  },
+                  "type": "path"
+                },
+                {
+                  "d": "M8.673,79.055h10.585",
+                  "fill": {
+                    "paint": "none"
+                  },
+                  "name": "path",
+                  "stroke": {
+                    "paint": "#FFFFFF",
+                    "width": "0.25"
+                  },
+                  "type": "path"
+                },
+                {
+                  "d": "M8.673,77.252h10.585",
+                  "fill": {
+                    "paint": "none"
+                  },
+                  "name": "path",
+                  "stroke": {
+                    "paint": "#FFFFFF",
+                    "width": "0.25"
+                  },
+                  "type": "path"
+                }
+              ],
+              "name": "Group_Green_Part",
+              "type": "group"
+            }
+          ],
+          "viewBox": "0 0 28.043 112.5"
+        },
+        "type": "ia.shapes.svg"
+      },
+      {
+        "meta": {
+          "name": "LedDisplay"
+        },
+        "position": {
+          "basis": "46px",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "1": "{view.params.SenNo}"
+                },
+                "tagPath": "[default]Sensor {1}/Reading_tag"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "segmentFormat": "7 segment"
+        },
+        "type": "ia.display.led-display"
+      },
+      {
+        "meta": {
+          "name": "Label_0"
+        },
+        "position": {
+          "basis": "54px",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "../MultiStateButton.props.indicatorValue"
+              },
+              "transforms": [
+                {
+                  "fallback": null,
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": 0,
+                      "output": "OFF"
+                    },
+                    {
+                      "input": 1,
+                      "output": "ON"
+                    },
+                    {
+                      "input": 2,
+                      "output": "Calibrate"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "borderStyle": "groove",
+            "fontSize": 24,
+            "fontWeight": "bold",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "MultiStateButton"
+        },
+        "position": {
+          "basis": "72px",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.controlValue": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "1": "{view.params.SenNo}"
+                },
+                "tagPath": "[default]Sensor {1}/Mode_tag"
+              },
+              "type": "tag"
+            }
+          },
+          "props.indicatorValue": {
+            "binding": {
+              "config": {
+                "path": "this.props.controlValue"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "orientation": "row",
+          "states": [
+            {
+              "selectedStyle": {
+                "backgroundColor": "#FF0000",
+                "classes": ""
+              },
+              "text": "OFF",
+              "unselectedStyle": {
+                "classes": "",
+                "fontWeight": "bold"
+              },
+              "value": 0
+            },
+            {
+              "selectedStyle": {
+                "backgroundColor": "#FFAC47",
+                "classes": ""
+              },
+              "text": "ON",
+              "unselectedStyle": {
+                "classes": "",
+                "fontWeight": "bold"
+              },
+              "value": 1
+            },
+            {
+              "selectedStyle": {
+                "backgroundColor": "#FFFF00",
+                "classes": "",
+                "fontWeight": "bold"
+              },
+              "text": "Calibrate",
+              "unselectedStyle": {
+                "classes": "",
+                "fontWeight": "bold"
+              },
+              "value": 2
+            }
+          ]
+        },
+        "type": "ia.input.multi-state-button"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

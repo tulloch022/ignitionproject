@@ -1,0 +1,2 @@
+INSERT INTO tasks( task_name, task_description, station_number, user_id, assign_date, complete_date )
+VALUES (:Task, :Description, (select  station_number from  stations where  station_name = :Station), (select  id from  goldusers_users where  username = :User), :assigned, null)

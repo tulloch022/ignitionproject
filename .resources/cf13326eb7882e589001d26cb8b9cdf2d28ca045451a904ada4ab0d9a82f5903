@@ -1,0 +1,114 @@
+{
+  "custom": {},
+  "events": null,
+  "params": {},
+  "permissions": null,
+  "propConfig": null,
+  "props": {
+    "defaultSize": {
+      "height": 64,
+      "width": 293
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "id": "DockedMenu",
+                "type": "toggle"
+              },
+              "scope": "C",
+              "type": "dock"
+            }
+          }
+        },
+        "meta": {
+          "name": "Icon"
+        },
+        "position": {
+          "basis": "80px",
+          "display": true,
+          "grow": 0,
+          "shrink": 1
+        },
+        "props": {
+          "path": "material/menu",
+          "style": {
+            "paddingBottom": "10px",
+            "paddingLeft": "10px",
+            "paddingRight": "10px",
+            "paddingTop": "10px"
+          }
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "50px",
+          "display": true,
+          "grow": 1,
+          "shrink": 1
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "page.props.path"
+              },
+              "transforms": [
+                {
+                  "fallback": "",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": "/",
+                      "output": "Towers"
+                    },
+                    {
+                      "input": "/map",
+                      "output": "Map"
+                    },
+                    {
+                      "input": "/compressors",
+                      "output": "Compressors"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "alignVertical": "center",
+          "style": {
+            "borderStyle": "none",
+            "fontFamily": "Tahoma",
+            "fontSize": "28px",
+            "fontWeight": "bolder",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "borderBottomStyle": "solid",
+        "borderBottomWidth": "1px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

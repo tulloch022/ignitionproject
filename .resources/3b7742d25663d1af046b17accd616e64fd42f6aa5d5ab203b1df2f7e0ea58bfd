@@ -1,0 +1,87 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "width": 849
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "tasks"
+        },
+        "propConfig": {
+          "props.instances": {
+            "binding": {
+              "config": {
+                "parameters": {
+                  "currentUser": "{session.props.auth.user.userName}"
+                },
+                "queryPath": "getIncompleteTaskIDs",
+                "returnFormat": "json"
+              },
+              "type": "query"
+            }
+          }
+        },
+        "props": {
+          "direction": "column",
+          "path": "Task",
+          "useDefaultViewWidth": false
+        },
+        "type": "ia.display.flex-repeater"
+      },
+      {
+        "meta": {
+          "name": "stations"
+        },
+        "position": {
+          "tabIndex": 1
+        },
+        "propConfig": {
+          "props.instances": {
+            "binding": {
+              "config": {
+                "polling": {
+                  "enabled": true,
+                  "rate": "10"
+                },
+                "queryPath": "getStationDetails",
+                "returnFormat": "dataset"
+              },
+              "transforms": [
+                {
+                  "code": "\t\n\tresults \u003d system.dataset.toPyDataSet(value)\n\t# Get the tag paths and data \n\tpaths \u003d [] \n\tfor i in results:\n\t\tpaths.append(\"[default]Stations/Station \"+ str(i[0]))\n\ttags \u003d system.tag.readBlocking(paths)\n\t\n\t#\tMake new Stations data\n\theaders \u003d [\u0027station_name\u0027, \u0027station_name\u0027, \u0027flow_rate\u0027, \u0027state\u0027]\n\tdata \u003d []\n\tfor x in range(len(results)):\n\t\tdata.append([results[x][1], results[x][0], tags[x].value[\"Flow Rate\"], tags[x].value[\"State\"]])\n\tstations \u003d system.dataset.toDataSet(headers, data)\n\t#\tSort the stations\n\tsortedData \u003d system.dataset.sort(stations, \"state\")\n\t\n\t# Structure data for a workable return\n\tstructuredList \u003d []\n\tnewResults \u003d system.dataset.toPyDataSet(sortedData)\n\tfor j in range(len(newResults)):\n\t\tnewDict \u003d {\n\t\t\t\u0027station_name\u0027: newResults[j][0],\n\t\t\t\u0027station_number\u0027: newResults[j][1],\n\t\t\t\u0027flow_rate\u0027: newResults[j][2],\n\t\t\t\u0027state\u0027: newResults[j][3]\n\t\t}\n\t\tstructuredList.append(newDict)\n\n\treturn structuredList",
+                  "type": "script"
+                }
+              ],
+              "type": "query"
+            }
+          }
+        },
+        "props": {
+          "direction": "column",
+          "elementStyle": {
+            "padding": "2px"
+          },
+          "path": "Station",
+          "useDefaultViewHeight": false,
+          "useDefaultViewWidth": false
+        },
+        "type": "ia.display.flex-repeater"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "tabs": [
+        "Tasks",
+        "Stations"
+      ]
+    },
+    "type": "ia.container.tab"
+  }
+}

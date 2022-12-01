@@ -1,0 +1,5 @@
+Select tasks.task_name as 'Task Name', tasks.task_description as 'Description', goldusers_users.username as 'Assigned To'
+From goldusers_users
+Inner Join tasks
+On goldusers_users.id = tasks.user_id
+Where station_number = :StationNumber and complete_date is Null

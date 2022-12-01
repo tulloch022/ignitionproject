@@ -1,0 +1,128 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "FlexRepeater"
+        },
+        "propConfig": {
+          "props.instances": {
+            "binding": {
+              "config": {
+                "parameters": {
+                  "username": "{session.props.auth.user.userName}"
+                },
+                "polling": {
+                  "enabled": true,
+                  "rate": "1"
+                },
+                "queryPath": "Select Incomplete Tasks for Task List View",
+                "returnFormat": "json"
+              },
+              "transforms": [
+                {
+                  "code": "\tinstances \u003d []\n\tcounter \u003d 0\n\tfor num in value:\n\t\tinstance \u003d {\n\t  \"instanceStyle\": {\n\t    \"classes\": \"\"\n\t  },\n\t  \"instancePosition\": {},\n\t  \"taskID\": getattr(value[counter], \"task_id\")\n\t}\n\t\tinstances.append(instance)\n\t\tcounter+\u003d1\n\treturn instances",
+                  "type": "script"
+                }
+              ],
+              "type": "query"
+            }
+          }
+        },
+        "props": {
+          "alignContent": "flex-start",
+          "direction": "column",
+          "elementStyle": {
+            "borderColor": "#000000",
+            "borderStyle": "solid",
+            "borderWidth": "1px"
+          },
+          "justify": "center",
+          "path": "Task",
+          "useDefaultViewHeight": false,
+          "useDefaultViewWidth": false
+        },
+        "type": "ia.display.flex-repeater"
+      },
+      {
+        "meta": {
+          "name": "FlexRepeater_0"
+        },
+        "position": {
+          "tabIndex": 1
+        },
+        "propConfig": {
+          "props.instances": {
+            "binding": {
+              "config": {
+                "polling": {
+                  "enabled": true,
+                  "rate": "1"
+                },
+                "queryPath": "Select Station Number",
+                "returnFormat": "json"
+              },
+              "transforms": [
+                {
+                  "code": "\t\n\t\n\tinstances \u003d []\n\tcounter \u003d 0\n\tfor thing in value:\n\t\n\t\tpath \u003d \"[default]Stations/Station \"+str(getattr(value[counter], \"station_number\"))+\"/State\"\n\t\ttagValue \u003d system.tag.readBlocking(path)\n\t\ttag \u003d tagValue[0]\n\t\t\n\t\tinstance \u003d {\n\t \t\"instanceStyle\": {\n\t  \t  \"classes\": \"\"\n\t\t },\n\t\t\"instancePosition\": {},\n\t \t\"stationNumber\":getattr(value[counter], \"station_number\"),\n\t \t\"state\":tag.value\n\t\t\t}\n\t\tinstances.append(instance)\n\t\tcounter+\u003d1\n\tinstances.sort(key\u003dlambda x: x[\"state\"])\n\treturn instances",
+                  "type": "script"
+                }
+              ],
+              "type": "query"
+            }
+          }
+        },
+        "props": {
+          "direction": "column",
+          "elementPosition": {
+            "basis": "50px",
+            "shrink": 0
+          },
+          "elementStyle": {
+            "margin": 10
+          },
+          "justify": "space-between",
+          "path": "Station",
+          "style": {
+            "overflow": "scroll"
+          },
+          "useDefaultViewHeight": false,
+          "useDefaultViewWidth": false
+        },
+        "type": "ia.display.flex-repeater"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "currentTabIndex": 1,
+      "menuStyle": {
+        "backgroundColor": "#00ACFF2B",
+        "color": "#F9F9F9",
+        "fontFamily": "Arial"
+      },
+      "menuType": "modern",
+      "tabSize": {
+        "height": 50,
+        "width": 150
+      },
+      "tabStyle": {
+        "active": {
+          "borderColor": "#365191",
+          "borderStyle": "double",
+          "borderWidth": 4,
+          "fontWeight": "bold"
+        }
+      },
+      "tabs": [
+        "Tasks",
+        "Stations"
+      ]
+    },
+    "type": "ia.container.tab"
+  }
+}

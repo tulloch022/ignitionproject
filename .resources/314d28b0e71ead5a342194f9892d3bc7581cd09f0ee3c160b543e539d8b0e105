@@ -1,0 +1,3 @@
+Select tasks.task_id as 'Task ID', tasks.task_name as 'Task Name', tasks.task_description as 'Description', tasks.user_id as 'User ID',
+	tasks.station_number as 'Station No.', tasks.assign_date as 'Date Assigned', tasks.complete_date as 'Date Completed' 
+From tasks

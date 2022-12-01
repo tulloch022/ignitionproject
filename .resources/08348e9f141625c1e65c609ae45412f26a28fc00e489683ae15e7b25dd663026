@@ -1,0 +1,9 @@
+select CASE WHEN EXISTS  (SELECT [task_id]
+      ,[task_name]
+      ,[task_description]
+      ,[user_id]
+      ,[station_number]
+      ,[assign_date]
+      ,[complete_date]
+  FROM [ignition8.1goldtest].[dbo].[tasks] where user_id = :user and station_number = :station and complete_date is null)
+  THEN 1 ELSE 0 END AS AnyData

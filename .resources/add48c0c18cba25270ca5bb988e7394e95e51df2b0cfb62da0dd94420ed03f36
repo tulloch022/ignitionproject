@@ -1,0 +1,261 @@
+{
+  "custom": {},
+  "params": {
+    "taskID": 1
+  },
+  "propConfig": {
+    "params.taskID": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "width": 808
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "breakpoints": [
+            {
+              "colIndex": 0,
+              "name": "sm",
+              "order": 1,
+              "rowIndex": 0,
+              "span": 12
+            },
+            {
+              "colIndex": 0,
+              "name": "md",
+              "order": 0,
+              "rowIndex": 0,
+              "span": 6
+            },
+            {
+              "colIndex": 0,
+              "name": "lg",
+              "order": 0,
+              "rowIndex": 0,
+              "span": 3
+            }
+          ],
+          "height": 60
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "parameters": {
+                  "taskID": "{view.params.taskID}"
+                },
+                "queryPath": "Task Name"
+              },
+              "type": "query"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_0"
+        },
+        "position": {
+          "breakpoints": [
+            {
+              "colIndex": 0,
+              "name": "sm",
+              "order": 1,
+              "rowIndex": 0,
+              "span": 12
+            },
+            {
+              "colIndex": 0,
+              "name": "md",
+              "order": -0.5,
+              "rowIndex": 1,
+              "span": 6
+            },
+            {
+              "colIndex": 3,
+              "name": "lg",
+              "order": 1,
+              "rowIndex": 0,
+              "span": 3
+            }
+          ],
+          "height": 60
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "parameters": {
+                  "taskID": "{view.params.taskID}"
+                },
+                "queryPath": "Task Description"
+              },
+              "type": "query"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_1"
+        },
+        "position": {
+          "breakpoints": [
+            {
+              "colIndex": 0,
+              "name": "sm",
+              "order": 1,
+              "rowIndex": 0,
+              "span": 12
+            },
+            {
+              "colIndex": 6,
+              "name": "md",
+              "order": 1,
+              "rowIndex": 0,
+              "span": 6
+            },
+            {
+              "colIndex": 6,
+              "name": "lg",
+              "order": 2,
+              "rowIndex": 0,
+              "span": 3
+            }
+          ],
+          "height": 60
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "parameters": {
+                  "taskID": "{view.params.taskID}"
+                },
+                "queryPath": "Task Station Name"
+              },
+              "type": "query"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tsystem.db.runNamedQuery(\"Mark Task Complete\", {\"taskID\": self.view.params.taskID, \"completeDate\": system.date.now()})"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "breakpoints": [
+            {
+              "colIndex": 1,
+              "name": "sm",
+              "order": 1,
+              "rowIndex": 1,
+              "span": 10
+            },
+            {
+              "colIndex": 7,
+              "name": "md",
+              "order": 0,
+              "rowIndex": 1,
+              "span": 4
+            },
+            {
+              "colIndex": 9,
+              "name": "lg",
+              "order": 2.5,
+              "rowIndex": 0,
+              "span": 3
+            }
+          ],
+          "height": 60
+        },
+        "props": {
+          "text": "Mark Complete"
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "custom.stationNumber": {
+        "binding": {
+          "config": {
+            "parameters": {
+              "taskID": "{view.params.taskID}"
+            },
+            "queryPath": "Task Station Number"
+          },
+          "type": "query"
+        }
+      },
+      "props.style.backgroundColor": {
+        "binding": {
+          "config": {
+            "fallbackDelay": 2.5,
+            "mode": "indirect",
+            "references": {
+              "stationNumber": "{this.custom.stationNumber}"
+            },
+            "tagPath": "[default]Stations/Station {stationNumber}/State"
+          },
+          "transforms": [
+            {
+              "fallback": "#00000000",
+              "inputType": "scalar",
+              "mappings": [
+                {
+                  "input": 2,
+                  "output": "#FF0000"
+                }
+              ],
+              "outputType": "color",
+              "type": "map"
+            }
+          ],
+          "type": "tag"
+        }
+      }
+    },
+    "type": "ia.container.column"
+  }
+}

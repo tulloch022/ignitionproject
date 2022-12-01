@@ -1,0 +1,9 @@
+select 
+		goldusers_users.username
+	,	goldusers_user_ci.contact_value
+	from tasks
+	left join goldusers_user_ci
+	on goldusers_user_ci.user_id = tasks.user_id
+	left join goldusers_users
+	on goldusers_users.id = tasks.user_id
+	where tasks.station_number =  :StationNr  and complete_date is null

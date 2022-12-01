@@ -1,0 +1,5 @@
+SELECT	tbl_users.username AS 'username',
+		tbl_contact.contact_value AS 'email'
+FROM goldusers_users AS tbl_users
+LEFT JOIN goldusers_user_ci AS tbl_contact ON tbl_users.id = tbl_contact.user_id
+WHERE tbl_contact.contact_type = 'email' 

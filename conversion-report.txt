@@ -1,0 +1,83 @@
+Starting conversion: 20190626:13.00.47
+Project: name=[global]
+  reading resource: id=41, name=Notify, type=alarm-pipeline, moduleId=com.inductiveautomation.alarm-notification
+Project: name=Ignition7_9GoldCertificationTest
+  reading resource: id=59, name=null, type=sr.global.props, moduleId=
+  reading resource: id=71, name=Navigation, type=component-template, moduleId=fpmi
+  reading resource: id=63, name=Report, type=window, moduleId=fpmi
+  reading resource: id=74, name=User Management, type=window, moduleId=fpmi
+  reading resource: id=48, name=Header, type=window, moduleId=fpmi
+  reading resource: id=56, name=Refrigeration, type=window, moduleId=fpmi
+  reading resource: id=57, name=Tower Detail, type=window, moduleId=fpmi
+  reading resource: id=68, name=Paint Report, type=com.ia.report, moduleId=rept
+  reading resource: id=54, name=Tower, type=component-template, moduleId=fpmi
+  reading resource: id=55, name=Pump, type=component-template, moduleId=fpmi
+  reading resource: id=64, name=Inventory, type=window, moduleId=fpmi
+  reading resource: id=65, name=Send Message, type=window, moduleId=fpmi
+  reading resource: id=52, name=Compressor Status, type=window, moduleId=fpmi
+  reading resource: id=53, name=Valve, type=component-template, moduleId=fpmi
+  reading resource: id=61, name=Compressor, type=component-template, moduleId=fpmi
+  reading resource: id=60, name=null, type=client_tags, moduleId=fpmi
+  reading resource: id=47, name=null, type=general.props, moduleId=fpmi
+  reading resource: id=51, name=null, type=client.event.scripts, moduleId=fpmi
+  reading resource: id=46, name=null, type=launch.props, moduleId=fpmi
+  reading resource: id=58, name=null, type=mobile.project.settings, moduleId=mobile
+  reading resource: id=50, name=Popups, type=__folder, moduleId=fpmi
+  reading resource: id=42, name=User Management, type=__folder, moduleId=fpmi
+  reading resource: id=43, name=Switch User, type=window, moduleId=fpmi
+  reading resource: id=44, name=Main Windows, type=__folder, moduleId=fpmi
+  reading resource: id=45, name=null, type=sr.global.props, moduleId=
+  reading resource: id=49, name=null, type=fpmi.designer.props, moduleId=fpmi
+Writing project '[global]' to directory '/var/lib/ignition/data/projects/global'
+Writing project 'Ignition7_9GoldCertificationTest' to directory '/var/lib/ignition/data/projects/Ignition7_9GoldCertificationTest'
+  Writing 1 'mobile.project.settings' resources to: /var/lib/ignition/data/projects/Ignition7_9GoldCertificationTest/mobile/mobile.project.settings
+    #1. Singleton resource: type=mobile.project.settings, path=/var/lib/ignition/data/projects/Ignition7_9GoldCertificationTest/mobile/mobile.project.settings
+  Writing 1 'client_tags' resources to: /var/lib/ignition/data/projects/Ignition7_9GoldCertificationTest/com.inductiveautomation.vision/client-tags
+    #1. Singleton resource: type=client_tags, path=/var/lib/ignition/data/projects/Ignition7_9GoldCertificationTest/com.inductiveautomation.vision/client-tags
+  Writing 1 'launch.props' resources to: /var/lib/ignition/data/projects/Ignition7_9GoldCertificationTest/com.inductiveautomation.vision/launch-properties
+    #1. Singleton resource: type=launch.props, path=/var/lib/ignition/data/projects/Ignition7_9GoldCertificationTest/com.inductiveautomation.vision/launch-properties
+  Writing 9 'window' resources to: /var/lib/ignition/data/projects/Ignition7_9GoldCertificationTest/com.inductiveautomation.vision/windows
+    #1. Resource: name=Report, type=window, parent=5c35f0ce-d1b9-4f99-8831-32819ecd3e91, path=/var/lib/ignition/data/projects/Ignition7_9GoldCertificationTest/com.inductiveautomation.vision/windows/Main Windows/Report
+    #2. Resource: name=User Management, type=window, parent=5c35f0ce-d1b9-4f99-8831-32819ecd3e91, path=/var/lib/ignition/data/projects/Ignition7_9GoldCertificationTest/com.inductiveautomation.vision/windows/Main Windows/User Management
+    #3. Resource: name=Header, type=window, parent=null, path=/var/lib/ignition/data/projects/Ignition7_9GoldCertificationTest/com.inductiveautomation.vision/windows/Header
+    #4. Resource: name=Refrigeration, type=window, parent=5c35f0ce-d1b9-4f99-8831-32819ecd3e91, path=/var/lib/ignition/data/projects/Ignition7_9GoldCertificationTest/com.inductiveautomation.vision/windows/Main Windows/Refrigeration
+    #5. Resource: name=Tower Detail, type=window, parent=57881148-7cf2-46dc-b101-26716421cd5e, path=/var/lib/ignition/data/projects/Ignition7_9GoldCertificationTest/com.inductiveautomation.vision/windows/Popups/Tower Detail
+    #6. Resource: name=Inventory, type=window, parent=5c35f0ce-d1b9-4f99-8831-32819ecd3e91, path=/var/lib/ignition/data/projects/Ignition7_9GoldCertificationTest/com.inductiveautomation.vision/windows/Main Windows/Inventory
+    #7. Resource: name=Send Message, type=window, parent=5c35f0ce-d1b9-4f99-8831-32819ecd3e91, path=/var/lib/ignition/data/projects/Ignition7_9GoldCertificationTest/com.inductiveautomation.vision/windows/Main Windows/Send Message
+    #8. Resource: name=Compressor Status, type=window, parent=57881148-7cf2-46dc-b101-26716421cd5e, path=/var/lib/ignition/data/projects/Ignition7_9GoldCertificationTest/com.inductiveautomation.vision/windows/Popups/Compressor Status
+    #9. Resource: name=Switch User, type=window, parent=05baafa9-f9b7-46a5-bcda-aab6a1333b40, path=/var/lib/ignition/data/projects/Ignition7_9GoldCertificationTest/com.inductiveautomation.vision/windows/User Management/Switch User
+  Writing 1 'fpmi.designer.props' resources to: /var/lib/ignition/data/projects/Ignition7_9GoldCertificationTest/com.inductiveautomation.vision/designer-properties
+    #1. Singleton resource: type=fpmi.designer.props, path=/var/lib/ignition/data/projects/Ignition7_9GoldCertificationTest/com.inductiveautomation.vision/designer-properties
+  Writing 5 'component-template' resources to: /var/lib/ignition/data/projects/Ignition7_9GoldCertificationTest/com.inductiveautomation.vision/templates
+    #1. Resource: name=Navigation, type=component-template, parent=f4b6692c-a312-4278-8ec4-cf20b161beb3, path=/var/lib/ignition/data/projects/Ignition7_9GoldCertificationTest/com.inductiveautomation.vision/templates/Navigation
+    #2. Resource: name=Tower, type=component-template, parent=f4b6692c-a312-4278-8ec4-cf20b161beb3, path=/var/lib/ignition/data/projects/Ignition7_9GoldCertificationTest/com.inductiveautomation.vision/templates/Tower
+    #3. Resource: name=Pump, type=component-template, parent=f4b6692c-a312-4278-8ec4-cf20b161beb3, path=/var/lib/ignition/data/projects/Ignition7_9GoldCertificationTest/com.inductiveautomation.vision/templates/Pump
+    #4. Resource: name=Valve, type=component-template, parent=f4b6692c-a312-4278-8ec4-cf20b161beb3, path=/var/lib/ignition/data/projects/Ignition7_9GoldCertificationTest/com.inductiveautomation.vision/templates/Valve
+    #5. Resource: name=Compressor, type=component-template, parent=f4b6692c-a312-4278-8ec4-cf20b161beb3, path=/var/lib/ignition/data/projects/Ignition7_9GoldCertificationTest/com.inductiveautomation.vision/templates/Compressor
+  Writing 1 'general.props' resources to: /var/lib/ignition/data/projects/Ignition7_9GoldCertificationTest/com.inductiveautomation.vision/general-properties
+    #1. Singleton resource: type=general.props, path=/var/lib/ignition/data/projects/Ignition7_9GoldCertificationTest/com.inductiveautomation.vision/general-properties
+  Writing 1 'client.event.scripts' resources to: /var/lib/ignition/data/projects/Ignition7_9GoldCertificationTest/com.inductiveautomation.vision/client-event-scripts
+    #1. Singleton resource: type=client.event.scripts, path=/var/lib/ignition/data/projects/Ignition7_9GoldCertificationTest/com.inductiveautomation.vision/client-event-scripts
+  Writing 2 'sr.global.props' resources to: /var/lib/ignition/data/projects/Ignition7_9GoldCertificationTest/ignition/global-props
+    #1. Singleton resource: type=sr.global.props, path=/var/lib/ignition/data/projects/Ignition7_9GoldCertificationTest/ignition/global-props
+    #2. Singleton resource: type=sr.global.props, path=/var/lib/ignition/data/projects/Ignition7_9GoldCertificationTest/ignition/global-props
+  Writing 1 'com.ia.report' resources to: /var/lib/ignition/data/projects/Ignition7_9GoldCertificationTest/com.inductiveautomation.reporting/reports
+    #1. Resource: name=Paint Report, type=com.ia.report, parent=9ca2ca15-86f1-440b-ad34-9fc2b7d01385, path=/var/lib/ignition/data/projects/Ignition7_9GoldCertificationTest/com.inductiveautomation.reporting/reports/Paint Report
+Writing project 'alarm-pipelines' to directory '/var/lib/ignition/data/projects/alarm-pipelines'
+  Writing 1 'alarm-pipeline' resources to: /var/lib/ignition/data/projects/alarm-pipelines/com.inductiveautomation.alarm-notification/alarm-pipelines
+    #1. Resource: name=Notify, type=alarm-pipeline, parent=a921034f-f88e-4f16-bcc0-13fce16e5bba, path=/var/lib/ignition/data/projects/alarm-pipelines/com.inductiveautomation.alarm-notification/alarm-pipelines/Notify
+Marked project '[global]' as converted.
+Marked project 'Ignition7_9GoldCertificationTest' as converted.
+Conversion finished. Elapsed time: 239 ms
+Starting conversion: 20190628:15.09.18
+Conversion finished. Elapsed time: 15 ms
+Starting conversion: 20190701:08.27.18
+Conversion finished. Elapsed time: 15 ms
+Starting conversion: 20190703:09.17.28
+Conversion finished. Elapsed time: 19 ms
+Starting conversion: 20201109:13.49.07
+Conversion finished. Elapsed time: 26 ms
+Starting conversion: 20220926:16.49.09
+Conversion finished. Elapsed time: 14 ms
+Starting conversion: 20221201:10.00.36
+Conversion finished. Elapsed time: 13 ms

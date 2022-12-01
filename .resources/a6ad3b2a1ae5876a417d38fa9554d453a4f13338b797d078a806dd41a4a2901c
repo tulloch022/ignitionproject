@@ -1,0 +1,29 @@
+{
+  "pages": {
+    "/": {
+      "docks": {
+        "top": [
+          {
+            "anchor": "fixed",
+            "autoBreakpoint": 480,
+            "content": "push",
+            "handle": "hide",
+            "iconUrl": "",
+            "id": "",
+            "modal": false,
+            "resizable": false,
+            "show": "visible",
+            "size": 100,
+            "viewParams": {},
+            "viewPath": "Header View"
+          }
+        ]
+      },
+      "title": "Acme Inc.",
+      "viewPath": "Main View"
+    }
+  },
+  "sharedDocks": {
+    "cornerPriority": "top-bottom"
+  }
+}

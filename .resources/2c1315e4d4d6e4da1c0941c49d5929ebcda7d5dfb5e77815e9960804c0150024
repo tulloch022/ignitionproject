@@ -1,0 +1,340 @@
+{
+  "custom": {
+    "flowRate": 50,
+    "state": "Off",
+    "stationName": "Southeast Station"
+  },
+  "params": {
+    "station": 6
+  },
+  "propConfig": {
+    "custom.flowRate": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.params.station}"
+          },
+          "tagPath": "[default]Station {1}/Flow Rate"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.state": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.params.station}"
+          },
+          "tagPath": "[default]Station {1}/State"
+        },
+        "transforms": [
+          {
+            "fallback": "Error",
+            "inputType": "scalar",
+            "mappings": [
+              {
+                "input": 0,
+                "output": "Off"
+              },
+              {
+                "input": 1,
+                "output": "Auto"
+              },
+              {
+                "input": 2,
+                "output": "Faulted"
+              }
+            ],
+            "outputType": "scalar",
+            "type": "map"
+          }
+        ],
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.stationName": {
+      "binding": {
+        "config": {
+          "parameters": {
+            "stationNumber": "{view.params.station}"
+          },
+          "queryPath": "getStationName"
+        },
+        "transforms": [
+          {
+            "code": "\treturn system.dataset.toPyDataSet(value)[0][\u0027station_name\u0027]",
+            "type": "script"
+          }
+        ],
+        "type": "query"
+      },
+      "persistent": true
+    },
+    "params.station": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 120,
+      "width": 450
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label_name"
+            },
+            "position": {
+              "basis": "50px",
+              "grow": 2
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.stationName"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "borderBottomStyle": "hidden",
+                "borderLeftStyle": "hidden",
+                "borderRightColor": "#AAAAAA",
+                "borderRightStyle": "solid",
+                "borderRightWidth": 1,
+                "borderTopStyle": "hidden",
+                "fontFamily": "Roboto",
+                "fontSize": "25px"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_flowRate"
+            },
+            "position": {
+              "basis": "50px",
+              "grow": 2
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.flowRate"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "fontFamily": "Roboto",
+                "fontSize": "25px"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_state"
+            },
+            "position": {
+              "basis": "50px",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.state"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "fontFamily": "Roboto",
+                "fontSize": "25px"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Image_0"
+            },
+            "position": {
+              "basis": "10px",
+              "grow": 2
+            },
+            "props": {
+              "fit": {
+                "mode": "fill"
+              },
+              "source": "/system/images/ACME/machinery-svgrepo-com.svg"
+            },
+            "type": "ia.display.image"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_large"
+        },
+        "position": {
+          "size": "large"
+        },
+        "propConfig": {
+          "props.style.classes": {
+            "binding": {
+              "config": {
+                "expression": "if({view.custom.state}\u003d\u0027Faulted\u0027,\u0027task_stationFaulted\u0027,\u0027task\u0027)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "justify": "space-evenly",
+          "style": {
+            "borderBottomLeftRadius": 10,
+            "borderBottomRightRadius": 10,
+            "borderColor": "#D5D5D5",
+            "borderStyle": "solid",
+            "borderTopLeftRadius": 10,
+            "borderTopRightRadius": 10,
+            "borderWidth": 1
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label_name"
+            },
+            "position": {
+              "basis": "32px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.stationName"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "borderBottomColor": "#AAAAAA",
+                "borderBottomStyle": "solid",
+                "borderBottomWidth": 1,
+                "fontFamily": "Roboto",
+                "fontSize": "25px"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_flowRate"
+            },
+            "position": {
+              "basis": "32px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.flowRate"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "fontFamily": "Roboto",
+                "fontSize": 25
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_state"
+            },
+            "position": {
+              "basis": "32px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.state"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "fontFamily": "Roboto",
+                "fontSize": "25px"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_small"
+        },
+        "propConfig": {
+          "props.style.classes": {
+            "binding": {
+              "config": {
+                "expression": "if({view.custom.state}\u003d\u0027Faulted\u0027,\u0027task_stationFaulted\u0027,\u0027task\u0027)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "direction": "column",
+          "justify": "space-evenly",
+          "style": {
+            "borderBottomLeftRadius": 10,
+            "borderBottomRightRadius": 10,
+            "borderColor": "#FFFFFF",
+            "borderStyle": "solid",
+            "borderTopLeftRadius": 10,
+            "borderTopRightRadius": 10,
+            "borderWidth": 1
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.breakpt"
+  }
+}

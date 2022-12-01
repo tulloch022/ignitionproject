@@ -1,0 +1,8 @@
+SELECT	tbl_tasks.task_name AS 'Task name',
+		tbl_tasks.task_description AS 'Task description',
+		CONCAT(tbl_users.fname, ' ', tbl_users.lname) AS 'Assigned user',
+		tbl_users.username AS 'username'
+FROM tasks AS tbl_tasks
+LEFT JOIN goldusers_users AS tbl_users ON tbl_tasks.user_id = tbl_users.id
+WHERE 	tbl_tasks.station_number = :StationNumber
+		AND  tbl_tasks.complete_date is Null

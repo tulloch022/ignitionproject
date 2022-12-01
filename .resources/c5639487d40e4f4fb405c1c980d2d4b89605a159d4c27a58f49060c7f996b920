@@ -1,0 +1,3 @@
+SELECT tasks.station_number
+FROM tasks
+where tasks.complete_date is null

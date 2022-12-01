@@ -1,0 +1,10 @@
+SELECT TOP (10) e.[id]
+     
+      ,[displaypath] as 'Alarm Name'
+
+      ,[eventtime] as 'Timestamp'
+	  ,[intvalue] as 'Value'
+  FROM [ignition8.1goldtest].[dbo].[alarm_events] e
+  left join [ignition8.1goldtest].[dbo].[alarm_event_data] d on e.id = d.id and propname = 'eventValue'
+  where  eventtype = 0 and displaypath like :station
+  order by [eventtime] desc

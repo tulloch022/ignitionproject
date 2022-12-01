@@ -1,0 +1,4 @@
+SELECT tasks.task_id
+FROM tasks
+INNER JOIN goldusers_users ON tasks.user_id = goldusers_users.id
+WHERE goldusers_users.username = :username AND tasks.complete_date IS NULL

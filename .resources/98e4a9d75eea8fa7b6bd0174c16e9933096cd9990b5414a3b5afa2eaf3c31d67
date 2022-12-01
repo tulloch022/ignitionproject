@@ -1,0 +1,5 @@
+SELECT task_description
+FROM tasks
+WHERE 	user_id LIKE :User_id
+		AND station_number = :StationNumber
+		AND  complete_date is Null

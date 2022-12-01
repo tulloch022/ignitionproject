@@ -1,0 +1,18 @@
+{
+  "type": "AllOf",
+  "securityLevels": [
+    {
+      "name": "Authenticated",
+      "children": []
+    },
+    {
+      "name": "SecurityZones",
+      "children": [
+        {
+          "name": "Local Zone",
+          "children": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+def getUsers():
+	users = system.db.runNamedQuery("Users", {})
+	users = system.dataset.addRow(users, [-1, "All Incomplete Tasks"])
+	return users
+	
+def totalIncompleteTasks(stationNumber, userID):
+	if userID == -1:
+		return system.db.runNamedQuery("All Incomplete Tasks", {"stationNumber":stationNumber})
+	else:
+		return system.db.runNamedQuery("User Incomplete Tasks", {"stationNumber":stationNumber, "userID":userID})

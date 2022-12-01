@@ -1,0 +1,7 @@
+SELECT  [task_id] 
+  FROM [ignition8.1goldtest].[dbo].[tasks] t
+  left join [ignition8.1goldtest].[dbo].[goldusers_users] u 
+  on t.user_id = u.id
+  where complete_date is null
+  and [username] = :username
+  order by assign_date

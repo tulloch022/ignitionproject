@@ -1,0 +1,2 @@
+Select ISNULL(Count(tasks.task_id),0) as Count_Tasks From tasks
+Where (tasks.user_id = :UserID or :UserID = 999) and tasks.complete_date is Null and  tasks.station_number = :StationNumber 

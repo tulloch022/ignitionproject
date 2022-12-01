@@ -1,0 +1,11 @@
+SELECT	eventtime,
+		eventid,
+		displaypath,
+		eventtype,
+		priority
+FROM alarm_events 
+WHERE 	(displaypath LIKE CONCAT('Station ',:parameter_station_number,' Reverse Flow Rate')
+		OR displaypath = CONCAT('Station ',:parameter_station_number,' Faulted'))
+		AND eventtype = 0
+ORDER BY eventtime DESC
+LIMIT 10

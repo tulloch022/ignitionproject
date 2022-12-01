@@ -1,0 +1,4 @@
+SELECT tasks.task_id AS "ID", tasks.task_name AS "Name", tasks.task_description AS "Description" , goldusers_users.username AS "Assigned To", 
+	tasks.station_number AS "Station Number", tasks.assign_date AS "Date Assigned", tasks.complete_date AS "Date Complete"
+FROM tasks
+INNER JOIN goldusers_users ON tasks.user_id = goldusers_users.id

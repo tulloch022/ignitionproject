@@ -1,0 +1,3 @@
+SELECT  [id]
+      ,[fname] +' ' + [lname] + ' - ' + [username] as 'user'
+  FROM [ignition8.1goldtest].[dbo].[goldusers_users]

@@ -1,0 +1,49 @@
+{
+  "pages": {
+    "/compressors": {
+      "viewPath": "Compressors"
+    },
+    "/map": {
+      "viewPath": "Map",
+      "title": ""
+    },
+    "/": {
+      "viewPath": "Towers"
+    }
+  },
+  "sharedDocks": {
+    "cornerPriority": "top-bottom",
+    "left": [
+      {
+        "viewPath": "Menu",
+        "id": "DockedMenu",
+        "viewParams": {},
+        "size": 250,
+        "resizable": false,
+        "iconUrl": "",
+        "modal": true,
+        "show": "onDemand",
+        "anchor": "fixed",
+        "content": "cover",
+        "autoBreakpoint": 480,
+        "handle": "hide"
+      }
+    ],
+    "top": [
+      {
+        "viewPath": "Header",
+        "id": "",
+        "viewParams": {},
+        "size": 150,
+        "resizable": false,
+        "iconUrl": "",
+        "modal": false,
+        "show": "visible",
+        "anchor": "fixed",
+        "content": "push",
+        "autoBreakpoint": 480,
+        "handle": "hide"
+      }
+    ]
+  }
+}

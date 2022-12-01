@@ -1,0 +1,10 @@
+	SELECT  u.[id]
+      ,[username]
+	  ,ci.[contact_value] as email
+	  ,[station_number]
+  FROM [ignition8.1goldtest].[dbo].[goldusers_users] u
+  left join [ignition8.1goldtest].[dbo].[goldusers_user_ci] ci on ci.user_id = u.id
+  left join [ignition8.1goldtest].[dbo].[tasks] t on t.user_id = u.id
+  where ci.contact_type = 'email' and t.[complete_date] is null
+  and station_number = :station
+    group by  u.[id],[username],ci.[contact_value],[station_number]

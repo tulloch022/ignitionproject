@@ -1,0 +1,99 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 850,
+      "width": 1207
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "FlexRepeater_0"
+        },
+        "position": {
+          "tabIndex": 1
+        },
+        "propConfig": {
+          "props.instances": {
+            "binding": {
+              "config": {
+                "polling": {
+                  "enabled": true,
+                  "rate": "5"
+                },
+                "queryPath": "Test Query",
+                "returnFormat": "json"
+              },
+              "transforms": [
+                {
+                  "code": "\tinstances \u003d value\n\tdata\u003d[]\n\tfor row in range (len(instances)):\n\t\tcount\u003drow+1\n\t\tTag \u003d system.tag.readBlocking(\"[default]Stations/Station \"+ str(count) +\"/State\")\n#\t\tprint Tag\n\t\tinstance \u003d {\n\t\t\t\"Station_no\": instances[row].Station_no,\n\t\t\t\"State\" : Tag[0].value\n\t\t\t}\n\t\tdata.append(instance)\n#self.props.instances[row]\n\tdata.sort()\n\treturn data\n\n#\treturn value",
+                  "type": "script"
+                }
+              ],
+              "type": "query"
+            }
+          }
+        },
+        "props": {
+          "direction": "column",
+          "path": "Breakpoint View",
+          "useDefaultViewWidth": false
+        },
+        "type": "ia.display.flex-repeater"
+      },
+      {
+        "meta": {
+          "name": "FlexRepeater"
+        },
+        "propConfig": {
+          "props.instances": {
+            "binding": {
+              "config": {
+                "parameters": {
+                  "user": "{session.props.auth.user.userName}"
+                },
+                "polling": {
+                  "enabled": true,
+                  "rate": "5"
+                },
+                "queryPath": "Task Test Query",
+                "returnFormat": "json"
+              },
+              "type": "query"
+            }
+          }
+        },
+        "props": {
+          "direction": "column",
+          "path": "Column View",
+          "useDefaultViewWidth": false
+        },
+        "type": "ia.display.flex-repeater"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "menuStyle": {
+        "backgroundColor": "#8AFFFF",
+        "fontFamily": "Roboto",
+        "fontSize": "50px",
+        "fontWeight": "bold"
+      },
+      "menuType": "modern",
+      "tabSize": {
+        "height": 50,
+        "width": 120
+      },
+      "tabs": [
+        "Task",
+        "Station"
+      ]
+    },
+    "type": "ia.container.tab"
+  }
+}

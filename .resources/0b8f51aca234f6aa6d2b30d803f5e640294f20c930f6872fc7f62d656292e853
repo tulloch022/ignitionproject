@@ -1,0 +1,6 @@
+select top 10 
+	displaypath
+,	eventtime
+from alarm_events
+where alarm_events.displaypath like ('Station '+ :StationNr +' %')
+order by eventtime desc

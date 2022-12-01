@@ -1,0 +1,6 @@
+#browse through a tag folder
+
+def getTags(tagFolder):
+	tags = system.tag.browse(tagFolder)
+	tagList = [str(tag["fullPath"]) for tag in tags.getResults()]
+	return tagList

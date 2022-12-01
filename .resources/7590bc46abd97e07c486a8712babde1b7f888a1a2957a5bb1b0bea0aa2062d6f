@@ -1,0 +1,9 @@
+SELECT s.station_number AS stationNumber,
+		s.station_name AS stationName,
+  Count(t.task_id) AS taskCount
+FROM stations s
+LEFT JOIN tasks t ON s.station_number = t.station_number
+	AND t.complete_date IS NULL
+    AND (t.user_id = :userID OR :userID = 0)
+GROUP BY s.station_number
+ORDER BY stationNumber

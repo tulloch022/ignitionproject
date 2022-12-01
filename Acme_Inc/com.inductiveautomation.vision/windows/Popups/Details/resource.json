@@ -1,0 +1,19 @@
+{
+  "scope": "C",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "window.bin",
+    "thumbnail.png"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "admin",
+      "timestamp": "2022-10-04T17:19:16Z"
+    },
+    "xml-format-version": 1,
+    "parameter-names": "StationNumber",
+    "lastModificationSignature": "384b83e986e2d5a85a9a82c487c8b69e8f41289f0cfa90e39c2e7642d196d193"
+  }
+}

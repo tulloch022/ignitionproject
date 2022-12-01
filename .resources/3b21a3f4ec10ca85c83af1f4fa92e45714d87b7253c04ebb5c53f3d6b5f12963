@@ -1,0 +1,340 @@
+{
+  "custom": {
+    "station_number": 10,
+    "task_info": [
+      {
+        "assign_date": 1603677166000,
+        "station_name": "Master Station",
+        "task_description": "Clean the station",
+        "task_name": "Clean"
+      }
+    ]
+  },
+  "params": {
+    "taskID": 3
+  },
+  "propConfig": {
+    "custom.station_number": {
+      "binding": {
+        "config": {
+          "parameters": {
+            "taskID": "{view.params.taskID}"
+          },
+          "queryPath": "Select Station Number by TaskID",
+          "returnFormat": "scalar"
+        },
+        "type": "query"
+      },
+      "persistent": true
+    },
+    "custom.task_info": {
+      "binding": {
+        "config": {
+          "parameters": {
+            "taskID": "{view.params.taskID}"
+          },
+          "queryPath": "Query",
+          "returnFormat": "json"
+        },
+        "type": "query"
+      },
+      "persistent": true
+    },
+    "params.taskID": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 500,
+      "width": 480
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label_0"
+        },
+        "position": {
+          "breakpoints": [
+            {
+              "colIndex": 0,
+              "name": "sm",
+              "order": 2,
+              "rowIndex": 0,
+              "span": 12
+            },
+            {
+              "colIndex": 0,
+              "name": "md",
+              "order": 0,
+              "rowIndex": 0,
+              "span": 6
+            },
+            {
+              "colIndex": 0,
+              "name": "lg",
+              "order": 0,
+              "rowIndex": 0,
+              "span": 2
+            }
+          ],
+          "height": 60
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.custom.task_info[0].task_name"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "breakpoints": [
+            {
+              "colIndex": 0,
+              "name": "sm",
+              "order": 1,
+              "rowIndex": 2,
+              "span": 12
+            },
+            {
+              "colIndex": 0,
+              "name": "md",
+              "order": 0,
+              "rowIndex": 1,
+              "span": 6
+            },
+            {
+              "colIndex": 4,
+              "name": "lg",
+              "order": 2,
+              "rowIndex": 0,
+              "span": 2
+            }
+          ],
+          "height": 60
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.custom.task_info[0].station_name"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_1"
+        },
+        "position": {
+          "breakpoints": [
+            {
+              "colIndex": 0,
+              "name": "sm",
+              "order": 1,
+              "rowIndex": 1,
+              "span": 12
+            },
+            {
+              "colIndex": 6,
+              "name": "md",
+              "order": 0.5,
+              "rowIndex": 1,
+              "span": 6
+            },
+            {
+              "colIndex": 6,
+              "name": "lg",
+              "order": 3,
+              "rowIndex": 0,
+              "span": 2
+            }
+          ],
+          "height": 60
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.custom.task_info[0].assign_date"
+              },
+              "transforms": [
+                {
+                  "formatType": "datetime",
+                  "formatValue": {
+                    "date": "medium",
+                    "time": "medium"
+                  },
+                  "type": "format"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\ttaskID \u003d int(self.view.params.taskID)\n\t\n\tpath \u003d \"Update Complete Task\"\n\tparams \u003d {\"taskID\":taskID}\n\t\n\tsystem.db.runNamedQuery(path, params)"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "breakpoints": [
+            {
+              "colIndex": 0,
+              "name": "sm",
+              "order": 1,
+              "rowIndex": 3,
+              "span": 12
+            },
+            {
+              "colIndex": 6,
+              "name": "md",
+              "order": 1,
+              "rowIndex": 2,
+              "span": 6
+            },
+            {
+              "colIndex": 8,
+              "name": "lg",
+              "order": 3.5,
+              "rowIndex": 0,
+              "span": 4
+            }
+          ],
+          "height": 60
+        },
+        "props": {
+          "text": "MARK AS COMPLETE"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "Label_2"
+        },
+        "position": {
+          "breakpoints": [
+            {
+              "colIndex": 0,
+              "name": "sm",
+              "order": -0.5,
+              "rowIndex": 1,
+              "span": 12
+            },
+            {
+              "colIndex": 6,
+              "name": "md",
+              "order": 1,
+              "rowIndex": 0,
+              "span": 6
+            },
+            {
+              "colIndex": 2,
+              "name": "lg",
+              "order": 1.5,
+              "rowIndex": 0,
+              "span": 2
+            }
+          ],
+          "height": 60
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.custom.task_info[0].task_description"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root",
+      "tooltip": {
+        "style": {
+          "backgroundColor": "#BC00FF"
+        }
+      }
+    },
+    "propConfig": {
+      "props.style.backgroundColor": {
+        "binding": {
+          "config": {
+            "fallbackDelay": 2.5,
+            "mode": "indirect",
+            "references": {
+              "station_number": "{view.custom.station_number}"
+            },
+            "tagPath": "[default]Stations/Station {station_number}/State"
+          },
+          "transforms": [
+            {
+              "fallback": "#FFFFFF",
+              "inputType": "scalar",
+              "mappings": [
+                {
+                  "input": 2,
+                  "output": "#FF0000"
+                }
+              ],
+              "outputType": "scalar",
+              "type": "map"
+            }
+          ],
+          "type": "tag"
+        }
+      }
+    },
+    "type": "ia.container.column"
+  }
+}

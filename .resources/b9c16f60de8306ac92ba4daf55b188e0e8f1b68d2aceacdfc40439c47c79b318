@@ -1,0 +1,2 @@
+INSERT INTO tasks (task_name, task_description, user_id, station_number, assign_date)
+VALUES (:name, :description, :userID, :stationNumber, :assignedDate)

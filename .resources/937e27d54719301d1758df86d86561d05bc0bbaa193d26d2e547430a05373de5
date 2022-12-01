@@ -1,0 +1,5 @@
+SELECT	tbl_tasks.task_id AS 'task_id'
+FROM tasks AS tbl_tasks
+LEFT JOIN goldusers_users AS tbl_users ON tbl_tasks.user_id = tbl_users.id
+WHERE 	tbl_users.id = :parameter_user_id
+		AND tbl_tasks.complete_date is Null

@@ -1,0 +1,1 @@
+{"onBarcodeDataReceived":"\t","onBluetoothReceived":"\t","onAccelerometerDataReceived":"\t","onNdefDataReceived":"\t","messageHandlers":[{"name":"newTest","enabled":true,"script":"\tsystem.perspective.print('')"}]}

@@ -1,0 +1,115 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 1080,
+      "width": 1920
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "TaskLists"
+        },
+        "propConfig": {
+          "props.instances": {
+            "binding": {
+              "config": {
+                "parameters": {
+                  "parameter_user_id": "{session.props.auth.user.id}"
+                },
+                "queryPath": "DB_Select_tasks_incomplete_perspective",
+                "returnFormat": "json"
+              },
+              "type": "query"
+            }
+          }
+        },
+        "props": {
+          "alignContent": "space-around",
+          "direction": "column",
+          "elementPosition": {
+            "basis": "auto"
+          },
+          "elementStyle": {
+            "margin": "5px"
+          },
+          "justify": "space-between",
+          "path": "Tasks/Task",
+          "useDefaultViewHeight": false,
+          "useDefaultViewWidth": false
+        },
+        "scripts": {
+          "customMethods": [],
+          "extensionFunctions": null,
+          "messageHandlers": [
+            {
+              "messageType": "update_data",
+              "pageScope": true,
+              "script": "\t# implement your handler here\n\tself.refreshBinding(\u0027props.instances\u0027)",
+              "sessionScope": false,
+              "viewScope": false
+            }
+          ]
+        },
+        "type": "ia.display.flex-repeater"
+      },
+      {
+        "meta": {
+          "name": "StationLists"
+        },
+        "position": {
+          "tabIndex": 1
+        },
+        "propConfig": {
+          "props.instances": {
+            "binding": {
+              "config": {
+                "queryPath": "DB_Select_stations_number_perspective",
+                "returnFormat": "json"
+              },
+              "transforms": [
+                {
+                  "code": "\t\n\timport json\n\t\n\ttag_path \u003d \"[default]GoldTest/Station {0}/State\"\n\n\ttarget_paths \u003d [tag_path.format(entry[\"station_number\"]) for entry in value]\n\t\n\ttags_as_states \u003d system.tag.readBlocking(target_paths)\n\tinstances \u003d []\n\tfor i in range(len(value)):\n\t    instances.append({\"station_number\": value[i][\"station_number\"], \"state\": tags_as_states[i].value})\n\t    \n\tvalues \u003d sorted(instances, key\u003dlambda k: k[\u0027state\u0027], reverse\u003dFalse)\n\treturn values",
+                  "type": "script"
+                }
+              ],
+              "type": "query"
+            }
+          }
+        },
+        "props": {
+          "alignContent": "space-around",
+          "direction": "column",
+          "elementPosition": {
+            "basis": "auto",
+            "grow": 0,
+            "shrink": 0
+          },
+          "justify": "space-between",
+          "loading": {
+            "order": "with-parent"
+          },
+          "path": "Stations/Station",
+          "useDefaultViewHeight": false,
+          "useDefaultViewWidth": false
+        },
+        "type": "ia.display.flex-repeater"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "currentTabIndex": 1,
+      "menuType": "modern",
+      "tabs": [
+        "Task List",
+        "Station List"
+      ]
+    },
+    "type": "ia.container.tab"
+  }
+}

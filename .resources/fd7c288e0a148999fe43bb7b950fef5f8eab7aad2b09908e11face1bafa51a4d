@@ -1,0 +1,42 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 47,
+      "width": 669
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "height": 0.7021,
+          "width": 0.9268,
+          "x": 0.0329,
+          "y": 0.1489
+        },
+        "props": {
+          "style": {
+            "fontFamily": "verdana",
+            "fontSize": 30,
+            "fontWeight": "bold",
+            "textAlignLast": "center"
+          },
+          "text": "Acme Inc."
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "mode": "percent"
+    },
+    "type": "ia.container.coord"
+  }
+}

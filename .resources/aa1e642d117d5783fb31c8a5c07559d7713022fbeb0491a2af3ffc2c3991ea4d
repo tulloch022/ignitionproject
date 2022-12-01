@@ -1,0 +1,6 @@
+{comment}SELECT 	'%' AS 'value',
+{comment}		'All Incomplete Tasks' AS 'label'
+{comment}UNION
+SELECT	id AS 'value',
+		CONCAT(fname, ' ', lname) AS 'label'
+FROM goldusers_users

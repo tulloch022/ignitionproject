@@ -1,0 +1,5 @@
+Select tasks.task_name, goldusers_users.username, tasks.complete_date 
+From tasks
+Inner Join goldusers_users ON tasks.user_id = goldusers_users.id
+Where tasks.complete_date is not null and tasks.station_number = :StationNumber and tasks.complete_date between :StartDate and :EndDate 
+Order By tasks.complete_date ASC

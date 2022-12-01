@@ -1,0 +1,4 @@
+SELECT tasks.task_name AS "Name", tasks.task_description AS "Description" , goldusers_users.username AS "Assigned To"
+FROM tasks
+INNER JOIN goldusers_users ON tasks.user_id = goldusers_users.id
+WHERE tasks.station_number = :stationNumber AND tasks.complete_date IS NULL

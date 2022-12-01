@@ -1,0 +1,300 @@
+{
+  "custom": {},
+  "params": {
+    "flow_rate": 10000,
+    "state": 0,
+    "station_name": "North Station",
+    "station_number": 1
+  },
+  "propConfig": {
+    "params.flow_rate": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.state": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.station_name": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.station_number": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 178,
+      "width": 1402
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Station Name"
+            },
+            "position": {
+              "basis": "249px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.station_name"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Station Flow Rate"
+            },
+            "position": {
+              "basis": "293px"
+            },
+            "propConfig": {
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.flow_rate"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "type": "ia.display.led-display"
+          },
+          {
+            "meta": {
+              "name": "Station State"
+            },
+            "position": {
+              "basis": "258px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.state"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": "Off",
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": 0,
+                          "output": "Off"
+                        },
+                        {
+                          "input": 1,
+                          "output": "Auto"
+                        },
+                        {
+                          "input": 2,
+                          "output": "Faulted"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "smallScreen"
+        },
+        "propConfig": {
+          "props.style.backgroundColor": {
+            "binding": {
+              "config": {
+                "path": "view.params.state"
+              },
+              "transforms": [
+                {
+                  "code": "\tif value \u003d\u003d 2:\n\t\treturn \"red\"\n\treturn \"white\"",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "direction": "column"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Image"
+            },
+            "position": {
+              "basis": "199px"
+            },
+            "props": {
+              "altText": "Station",
+              "fit": {
+                "mode": "contain"
+              },
+              "source": "/system/images/Workbench.png"
+            },
+            "type": "ia.display.image"
+          },
+          {
+            "meta": {
+              "name": "Station Name"
+            },
+            "position": {
+              "basis": "202px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.station_name"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Station Flow Rate"
+            },
+            "position": {
+              "basis": "448px",
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.flow_rate"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "paddingLeft": "20px",
+                "paddingRight": "20px"
+              }
+            },
+            "type": "ia.display.led-display"
+          },
+          {
+            "meta": {
+              "name": "Station State"
+            },
+            "position": {
+              "basis": "198px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.state"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": "Off",
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": 0,
+                          "output": "Off"
+                        },
+                        {
+                          "input": 1,
+                          "output": "Auto"
+                        },
+                        {
+                          "input": 2,
+                          "output": "Faulted"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "largeScreen"
+        },
+        "position": {
+          "size": "large"
+        },
+        "propConfig": {
+          "props.style.backgroundColor": {
+            "binding": {
+              "config": {
+                "path": "view.params.state"
+              },
+              "transforms": [
+                {
+                  "code": "\tif value \u003d\u003d 2:\n\t\treturn \"red\"\n\treturn \"white\"",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "alignContent": "space-around",
+          "justify": "space-between"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.breakpt"
+  }
+}

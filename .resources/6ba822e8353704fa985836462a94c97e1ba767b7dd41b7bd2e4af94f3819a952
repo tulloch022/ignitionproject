@@ -1,0 +1,13 @@
+SELECT
+	task_id as taskID,
+	task_name as taskName,
+	task_description as taskDescription,
+	u.username as username,
+	CASE
+		WHEN u.username = :username THEN 1
+		ELSE 2
+	END AS "Background"
+FROM tasks t
+LEFT JOIN goldusers_users u ON t.user_id = u.id
+WHERE t.complete_date is NULL
+AND t.station_number = :stationNumber

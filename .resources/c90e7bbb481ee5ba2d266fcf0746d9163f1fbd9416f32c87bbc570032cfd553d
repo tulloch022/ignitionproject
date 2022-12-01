@@ -1,0 +1,6 @@
+SELECT s.[station_number] as StationNumber
+	  ,isnull(max([user_id]),-2) as 'user'
+  FROM [ignition8.1goldtest].[dbo].[stations] s
+  left join [ignition8.1goldtest].[dbo].[tasks] t 
+  on t.station_number = s.station_number and complete_date is null
+  group by s.[station_number]

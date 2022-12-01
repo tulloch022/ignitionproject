@@ -1,0 +1,479 @@
+{
+  "custom": {
+    "customHeight": 290,
+    "date": {
+      "$": [
+        "ts",
+        192,
+        1669218403035
+      ],
+      "$ts": 1603660953000
+    },
+    "description": "Clean the station",
+    "faulted": 0,
+    "stationName": "West Station (3)",
+    "stationNumber": 3,
+    "taskName": "Clean",
+    "taskQuery": {
+      "$": [
+        "ds",
+        192,
+        1669218403037
+      ],
+      "$columns": [
+        {
+          "data": [
+            "Clean"
+          ],
+          "name": "task_name",
+          "type": "String"
+        },
+        {
+          "data": [
+            "Clean the station"
+          ],
+          "name": "task_description",
+          "type": "String"
+        },
+        {
+          "data": [
+            3
+          ],
+          "name": "station_number",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            "West Station (3)"
+          ],
+          "name": "station_name",
+          "type": "String"
+        },
+        {
+          "data": [
+            1603660953000
+          ],
+          "name": "assign_date",
+          "type": "Date"
+        },
+        {
+          "data": [
+            1603706273000
+          ],
+          "name": "complete_date",
+          "type": "Date"
+        }
+      ]
+    }
+  },
+  "params": {
+    "taskId": 1
+  },
+  "propConfig": {
+    "custom.customHeight": {
+      "binding": {
+        "config": {
+          "path": "page.props.dimensions.primaryView.width"
+        },
+        "transforms": [
+          {
+            "code": "\tif value \u003e\u003d 950:\n\t\tvalue \u003d 55\n\telif value \u003c 950 and value \u003e 500:\n\t\tvalue \u003d 120\n\telse:\n\t\tvalue \u003d 290\n\treturn value",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.date": {
+      "persistent": true
+    },
+    "custom.description": {
+      "persistent": true
+    },
+    "custom.faulted": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.stationNumber}"
+          },
+          "tagPath": "[default]Station {1}/State"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.stationName": {
+      "persistent": true
+    },
+    "custom.stationNumber": {
+      "persistent": true
+    },
+    "custom.taskName": {
+      "persistent": true
+    },
+    "custom.taskQuery": {
+      "binding": {
+        "config": {
+          "parameters": {
+            "task_id": "{view.params.taskId}"
+          },
+          "polling": {
+            "enabled": true,
+            "rate": "3"
+          },
+          "queryPath": "perspective/getSingleTaskbyId"
+        },
+        "transforms": [
+          {
+            "code": "\ttry:\n\t  self.custom.date \u003d system.dataset.toPyDataSet(value)[0][\u0027assign_date\u0027]\n\t  self.custom.stationName \u003d system.dataset.toPyDataSet(value)[0][\u0027station_name\u0027]\n\t  self.custom.taskName \u003d system.dataset.toPyDataSet(value)[0][\u0027task_name\u0027]\n\t  self.custom.description \u003d system.dataset.toPyDataSet(value)[0][\u0027task_description\u0027]\n\t  self.custom.stationNumber \u003d system.dataset.toPyDataSet(value)[0][\u0027station_number\u0027]\n\texcept:\n\t\tpass\n\n\treturn value",
+            "type": "script"
+          }
+        ],
+        "type": "query"
+      },
+      "persistent": true
+    },
+    "params.taskId": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "props.defaultSize.height": {
+      "binding": {
+        "config": {
+          "path": "view.custom.customHeight"
+        },
+        "type": "property"
+      }
+    }
+  },
+  "props": {
+    "defaultSize": {}
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label_taskName"
+        },
+        "position": {
+          "breakpoints": [
+            {
+              "colIndex": 0,
+              "name": "sm",
+              "order": 0,
+              "rowIndex": 0,
+              "span": 12
+            },
+            {
+              "colIndex": 0,
+              "name": "md",
+              "order": 0,
+              "rowIndex": 0,
+              "span": 5
+            },
+            {
+              "colIndex": 0,
+              "name": "lg",
+              "order": 0,
+              "rowIndex": 0,
+              "span": 2
+            }
+          ],
+          "height": 50
+        },
+        "propConfig": {
+          "props.style.classes": {
+            "binding": {
+              "config": {
+                "expression": "if({view.custom.faulted},\u0027task_stationFaulted\u0027,\u0027task\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.custom.taskName"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_description"
+        },
+        "position": {
+          "breakpoints": [
+            {
+              "colIndex": 0,
+              "name": "sm",
+              "order": 1,
+              "rowIndex": 1,
+              "span": 12
+            },
+            {
+              "colIndex": 5,
+              "name": "md",
+              "order": 1,
+              "rowIndex": 0,
+              "span": 7
+            },
+            {
+              "colIndex": 2,
+              "name": "lg",
+              "order": 1,
+              "rowIndex": 0,
+              "span": 4
+            }
+          ],
+          "height": 50
+        },
+        "propConfig": {
+          "props.style.classes": {
+            "binding": {
+              "config": {
+                "expression": "if({view.custom.faulted},\u0027task_stationFaulted\u0027,\u0027task\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.custom.description"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_stationName"
+        },
+        "position": {
+          "breakpoints": [
+            {
+              "colIndex": 0,
+              "name": "sm",
+              "order": 0,
+              "rowIndex": 2,
+              "span": 12
+            },
+            {
+              "colIndex": 0,
+              "name": "md",
+              "order": 0,
+              "rowIndex": 1,
+              "span": 5
+            },
+            {
+              "colIndex": 6,
+              "name": "lg",
+              "order": 1.5,
+              "rowIndex": 0,
+              "span": 3
+            }
+          ],
+          "height": 50
+        },
+        "propConfig": {
+          "props.style.classes": {
+            "binding": {
+              "config": {
+                "expression": "if({view.custom.faulted},\u0027task_stationFaulted\u0027,\u0027task\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.custom.stationName"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {},
+          "textStyle": {
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_dateAssigned"
+        },
+        "position": {
+          "breakpoints": [
+            {
+              "colIndex": 0,
+              "name": "sm",
+              "order": 1,
+              "rowIndex": 2,
+              "span": 12
+            },
+            {
+              "colIndex": 5,
+              "name": "md",
+              "order": 1,
+              "rowIndex": 1,
+              "span": 4
+            },
+            {
+              "colIndex": 9,
+              "name": "lg",
+              "order": 1.5,
+              "rowIndex": 0,
+              "span": 2
+            }
+          ],
+          "height": 50
+        },
+        "propConfig": {
+          "props.style.classes": {
+            "binding": {
+              "config": {
+                "expression": "if({view.custom.faulted},\u0027task_stationFaulted\u0027,\u0027task\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.custom.date"
+              },
+              "transforms": [
+                {
+                  "formatType": "datetime",
+                  "formatValue": {
+                    "date": "short",
+                    "time": "short"
+                  },
+                  "type": "format"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tsystem.perspective.print(\u0027button pressed\u0027)\n\tparams \u003d {\u0027task_id\u0027:str(self.view.params.taskId)}\n\tsystem.perspective.print(params) \n\tsystem.db.runNamedQuery(\u0027taskManagement/updateTask\u0027,params)\n\tproject \u003d system.util.getProjectName()\n\tsystem.perspective.sendMessage(\u0027refreshTask\u0027)"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_completeTask"
+        },
+        "position": {
+          "breakpoints": [
+            {
+              "colIndex": 0,
+              "name": "sm",
+              "order": 1.5,
+              "rowIndex": 2,
+              "span": 12
+            },
+            {
+              "colIndex": 9,
+              "name": "md",
+              "order": 2,
+              "rowIndex": 1,
+              "span": 3
+            },
+            {
+              "colIndex": 11,
+              "name": "lg",
+              "order": 2,
+              "rowIndex": 0,
+              "span": 1
+            }
+          ],
+          "height": 50
+        },
+        "props": {
+          "style": {
+            "borderBottomLeftRadius": 10,
+            "borderBottomRightRadius": 10,
+            "borderColor": "#0000FF",
+            "borderStyle": "solid",
+            "borderTopLeftRadius": 10,
+            "borderTopRightRadius": 10,
+            "borderWidth": 2
+          },
+          "text": "Complete Task"
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "breakpoints": [
+        {
+          "minWidth": 0,
+          "name": "sm"
+        },
+        {
+          "minWidth": 500,
+          "name": "md"
+        },
+        {
+          "minWidth": 950,
+          "name": "lg"
+        }
+      ],
+      "gutters": {
+        "horizontal": 4,
+        "vertical": 4
+      },
+      "style": {
+        "borderBottomLeftRadius": 10,
+        "borderBottomRightRadius": 10,
+        "borderColor": "#555555",
+        "borderStyle": "solid",
+        "borderTopLeftRadius": 10,
+        "borderTopRightRadius": 10,
+        "borderWidth": 1,
+        "outlineStyle": "none"
+      }
+    },
+    "type": "ia.container.column"
+  }
+}

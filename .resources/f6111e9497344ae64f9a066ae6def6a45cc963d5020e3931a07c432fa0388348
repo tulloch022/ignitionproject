@@ -1,0 +1,7 @@
+def GetValueTable(dataset, row, col):
+	pyData = system.dataset.toPyDataSet(dataset)
+	if row != -1:
+		value = pyData.getValueAt(row, col)
+		return value
+	else:
+		return 0

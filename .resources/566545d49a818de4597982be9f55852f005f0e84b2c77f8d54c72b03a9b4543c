@@ -1,0 +1,4 @@
+Select ID, Username
+From goldusers_users
+Union
+Select 999, 'All Incomplete Tasks' 

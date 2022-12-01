@@ -1,0 +1,3 @@
+UPDATE tasks
+SET complete_date = :completeDate
+WHERE task_id = :taskID

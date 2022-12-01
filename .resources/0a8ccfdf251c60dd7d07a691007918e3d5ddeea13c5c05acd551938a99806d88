@@ -1,0 +1,9 @@
+select 
+	tasks.task_name
+,	tasks.task_description
+,	tasks.assign_date
+,	stations.station_name
+from tasks
+left join stations
+on stations.station_number = tasks.station_number
+where tasks.task_id =  :TaskID 

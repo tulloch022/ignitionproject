@@ -1,0 +1,67 @@
+{
+  "custom": {},
+  "params": {
+    "stationNumber": 3
+  },
+  "propConfig": {
+    "params.stationNumber": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 573,
+      "width": 646
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Small Breakpoint"
+        },
+        "propConfig": {
+          "props.params.stationNumber": {
+            "binding": {
+              "config": {
+                "path": "view.params.stationNumber"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "path": "Breakpoints/Small Breakpoint"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Large Breakpoint"
+        },
+        "position": {
+          "size": "large"
+        },
+        "propConfig": {
+          "props.params.stationNumber": {
+            "binding": {
+              "config": {
+                "path": "view.params.stationNumber"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "path": "Breakpoints/Large Breakpoint"
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.breakpt"
+  }
+}

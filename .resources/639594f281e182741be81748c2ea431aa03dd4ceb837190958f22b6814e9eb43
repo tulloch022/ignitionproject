@@ -1,0 +1,2 @@
+SELECT goldusers_users.username
+FROM goldusers_users

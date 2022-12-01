@@ -1,0 +1,11 @@
+select 
+	tasks.task_name
+,	tasks.task_description
+,	tasks.assign_date
+,	tasks.station_number
+from tasks
+left join stations
+on stations.station_number = tasks.station_number
+left join goldusers_users
+on goldusers_users.id = tasks.user_id
+where goldusers_users.username = :User 

@@ -1,0 +1,189 @@
+{
+  "custom": {
+    "user": "admin",
+    "userID": 0
+  },
+  "params": {},
+  "propConfig": {
+    "custom.user": {
+      "binding": {
+        "config": {
+          "path": "session.props.auth.user.userName"
+        },
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.userID": {
+      "binding": {
+        "config": {
+          "expression": "if({view.custom.user}\u003d\"susan\"\r\n,1,\r\nif({view.custom.user}\u003d\"arthur\"\r\n,2,\r\nif({view.custom.user}\u003d\"jane\"\r\n,3,\r\nif({view.custom.user}\u003d\"john\"\r\n,4,\r\nif({view.custom.user}\u003d\"mary\"\r\n,5,0)))))"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 670,
+      "width": 947
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "32px"
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "\"Current User: \" + {view.custom.user}"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "TaskList"
+                },
+                "position": {
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.instances": {
+                    "binding": {
+                      "config": {
+                        "parameters": {
+                          "UserID": "{view.custom.userID}"
+                        },
+                        "polling": {
+                          "enabled": true,
+                          "rate": "5"
+                        },
+                        "queryPath": "PerspectiveIncompleteTasks",
+                        "returnFormat": "json"
+                      },
+                      "type": "query"
+                    }
+                  }
+                },
+                "props": {
+                  "direction": "column",
+                  "elementStyle": {
+                    "borderStyle": "solid",
+                    "borderWidth": 1
+                  },
+                  "loading": {
+                    "order": "with-parent"
+                  },
+                  "path": "Task",
+                  "useDefaultViewHeight": false,
+                  "useDefaultViewWidth": false
+                },
+                "type": "ia.display.flex-repeater"
+              }
+            ],
+            "custom": {
+              "user": "value"
+            },
+            "meta": {
+              "name": "Tab_0"
+            },
+            "props": {
+              "direction": "column"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "StationList"
+                },
+                "position": {
+                  "basis": "300px",
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.instances": {
+                    "binding": {
+                      "config": {
+                        "polling": {
+                          "enabled": true,
+                          "rate": "10"
+                        },
+                        "queryPath": "StationList"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\tpyData \u003d system.dataset.toPyDataSet(value)\n\tdata \u003d []\n\t\n\tfor row in pyData:\n\t\tinstance \u003d {}\n\t\tinstance[\"stationNo\"] \u003d row[0]\n\t\t\n\t\tfaulted \u003d system.tag.readBlocking([\"Gold/Station \" + str(row[0]) + \"/State\"])[0].value\n\t\t\n\t\tif faulted \u003d\u003d 2:\n\t\t\tinstance[\"faulted\"] \u003d \"true\"\n\t\telse:\n\t\t\tinstance[\"faulted\"] \u003d \"false\"\n\t\t\n\t\tdata.append(instance)\n\treturn sorted(data, key \u003d lambda x: x[\u0027faulted\u0027])\n\t\t",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "query"
+                    }
+                  }
+                },
+                "props": {
+                  "direction": "column",
+                  "elementStyle": {
+                    "borderStyle": "solid",
+                    "borderWidth": 1
+                  },
+                  "path": "Station",
+                  "useDefaultViewWidth": false
+                },
+                "type": "ia.display.flex-repeater"
+              }
+            ],
+            "meta": {
+              "name": "Tab_1"
+            },
+            "position": {
+              "tabIndex": 1
+            },
+            "props": {
+              "direction": "column"
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "TabContainer"
+        },
+        "position": {
+          "basis": "300px",
+          "grow": 1
+        },
+        "props": {
+          "tabs": [
+            "Task List",
+            "Station List"
+          ]
+        },
+        "type": "ia.container.tab"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "justify": "space-around"
+    },
+    "type": "ia.container.flex"
+  }
+}

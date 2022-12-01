@@ -1,0 +1,6 @@
+SELECT 
+	assign_date
+FROM
+	tasks
+WHERE 
+	task_id = :taskID

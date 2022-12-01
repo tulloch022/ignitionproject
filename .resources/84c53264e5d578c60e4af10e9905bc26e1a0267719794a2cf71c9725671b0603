@@ -1,0 +1,10 @@
+SELECT	tbl_tasks.task_id AS 'id',
+		tbl_tasks.task_name AS 'Task name',
+		tbl_tasks.task_description AS 'Task description',
+		CONCAT(tbl_users.fname, ' ', tbl_users.lname) AS 'Assigned user',
+		tbl_stations.station_name AS 'Station name',
+		tbl_tasks.assign_date AS 'Assign date',
+		tbl_tasks.complete_date AS 'Complete date'
+FROM tasks AS tbl_tasks
+LEFT JOIN goldusers_users AS tbl_users ON tbl_tasks.user_id = tbl_users.id
+LEFT JOIN stations AS tbl_stations ON tbl_tasks.station_number = tbl_stations.station_number

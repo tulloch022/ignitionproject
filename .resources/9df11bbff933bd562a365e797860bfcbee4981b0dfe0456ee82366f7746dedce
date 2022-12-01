@@ -1,0 +1,244 @@
+{
+  "custom": {
+    "key": "value",
+    "loggedUser": "admin",
+    "stationsQuery": [
+      {
+        "station": 1
+      },
+      {
+        "station": 4
+      },
+      {
+        "station": 5
+      },
+      {
+        "station": 6
+      },
+      {
+        "station": 7
+      },
+      {
+        "station": 8
+      },
+      {
+        "station": 9
+      },
+      {
+        "station": 10
+      },
+      {
+        "station": 11
+      },
+      {
+        "station": 12
+      },
+      {
+        "station": 13
+      },
+      {
+        "station": 14
+      },
+      {
+        "station": 15
+      },
+      {
+        "station": 16
+      },
+      {
+        "station": 17
+      },
+      {
+        "station": 18
+      },
+      {
+        "station": 19
+      },
+      {
+        "station": 20
+      },
+      {
+        "station": 2
+      },
+      {
+        "station": 3
+      }
+    ],
+    "tasks": []
+  },
+  "params": {},
+  "propConfig": {
+    "custom.key": {
+      "persistent": true
+    },
+    "custom.loggedUser": {
+      "binding": {
+        "config": {
+          "path": "session.props.auth.user.userName"
+        },
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.stationsQuery": {
+      "binding": {
+        "config": {
+          "polling": {
+            "enabled": true,
+            "rate": "30"
+          },
+          "queryPath": "selectStationNamesWithId"
+        },
+        "transforms": [
+          {
+            "code": "\tstationDataList \u003d []\n\tfaultedStations \u003d []\n\tstations \u003d []\n\tdataset \u003d system.dataset.toPyDataSet(value)\n\tfor station in dataset:\n\t\ttagpath \u003d \u0027[default]Station \u0027+ str(station[\u0027Station Number\u0027]) + \u0027/State\u0027\n\t\tstationData \u003d {\u0027station\u0027:station[\u0027Station Number\u0027],\u0027state\u0027:str(system.tag.readBlocking([tagpath])[0].value)}\n\t\tstationDataList.append(stationData)\n\tfor stationDic in stationDataList:\n\t\tif stationDic[\u0027state\u0027] !\u003d \u00272\u0027:\n\t\t\tstations.append({\u0027station\u0027:stationDic[\u0027station\u0027]}) \n\t\telse:\n\t\t\tfaultedStations.append({\u0027station\u0027:stationDic[\u0027station\u0027]}) \n\tstations +\u003d faultedStations\n\treturn stations",
+            "type": "script"
+          }
+        ],
+        "type": "query"
+      },
+      "persistent": true
+    },
+    "custom.tasks": {
+      "binding": {
+        "config": {
+          "parameters": {
+            "username": "{view.custom.loggedUser}"
+          },
+          "polling": {
+            "enabled": true,
+            "rate": "10"
+          },
+          "queryPath": "perspective/getTasksForCurrentUser"
+        },
+        "transforms": [
+          {
+            "code": "\ttaskList \u003d []\n\tdataset \u003d system.dataset.toPyDataSet(value)\n\tfor task in dataset:\n\t\ttaskList.append({\u0027taskId\u0027:task[0]})\n\treturn taskList",
+            "type": "script"
+          }
+        ],
+        "type": "query"
+      },
+      "persistent": true
+    }
+  },
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "FlexRepeater_stations"
+        },
+        "propConfig": {
+          "props.instances": {
+            "binding": {
+              "config": {
+                "path": "view.custom.stationsQuery"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "alignContent": "space-around",
+          "direction": "column",
+          "elementStyle": {
+            "marginBottom": "5px"
+          },
+          "justify": "space-between",
+          "path": "templates/Station",
+          "useDefaultViewWidth": false
+        },
+        "type": "ia.display.flex-repeater"
+      },
+      {
+        "meta": {
+          "name": "FlexRepeater_tasks"
+        },
+        "position": {
+          "tabIndex": 1
+        },
+        "propConfig": {
+          "custom.task": {
+            "binding": {
+              "config": {
+                "parameters": {
+                  "username": "{view.custom.loggedUser}"
+                },
+                "polling": {
+                  "enabled": true,
+                  "rate": "15"
+                },
+                "queryPath": "perspective/getTasksForCurrentUser"
+              },
+              "transforms": [
+                {
+                  "code": "\ttaskList \u003d []\n\tdataset \u003d system.dataset.toPyDataSet(value)\n\tfor task in dataset:\n\t\ttaskList.append({\u0027taskId\u0027:task[0]})\n\treturn taskList",
+                  "type": "script"
+                }
+              ],
+              "type": "query"
+            }
+          },
+          "props.instances": {
+            "binding": {
+              "config": {
+                "path": "this.custom.task"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "alignContent": "center",
+          "direction": "column",
+          "elementPosition": {
+            "basis": 2,
+            "grow": 5
+          },
+          "path": "templates/task",
+          "useDefaultViewWidth": false
+        },
+        "scripts": {
+          "customMethods": [],
+          "extensionFunctions": null,
+          "messageHandlers": [
+            {
+              "messageType": "refreshTask",
+              "pageScope": true,
+              "script": "\tself.refreshBinding(\"custom.task\")\n\tsystem.perspective.print(\u0027ref\u0027)\n",
+              "sessionScope": true,
+              "viewScope": true
+            }
+          ]
+        },
+        "type": "ia.display.flex-repeater"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "menuStyle": {
+        "fontFamily": "Roboto",
+        "fontWeight": "bold"
+      },
+      "menuType": "modern",
+      "tabSize": {
+        "width": 150
+      },
+      "tabStyle": {
+        "active": {
+          "color": "#000000",
+          "fontFamily": "Roboto",
+          "fontSize": "25px"
+        }
+      },
+      "tabs": [
+        "Stations",
+        "Task"
+      ]
+    },
+    "type": "ia.container.tab"
+  }
+}

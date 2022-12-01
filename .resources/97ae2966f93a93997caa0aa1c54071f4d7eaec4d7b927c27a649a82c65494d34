@@ -1,0 +1,6 @@
+SELECT displaypath AS "Display Path", eventtime AS "Event Time"
+FROM alarm_events
+WHERE eventtype = 0
+    AND displaypath LIKE CONCAT("%Station ", :stationNumber, " %")
+ORDER BY eventtime DESC
+LIMIT 10

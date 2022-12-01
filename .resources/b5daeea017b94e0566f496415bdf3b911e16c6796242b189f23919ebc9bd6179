@@ -1,0 +1,48 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 100,
+      "width": 1000
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "props": {
+          "alignVertical": "top",
+          "style": {
+            "color": "#4747FF",
+            "fontSize": 48,
+            "fontWeight": "bold"
+          },
+          "text": "ACME Inc."
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Image"
+        },
+        "props": {
+          "source": "https://docs.inductiveautomation.com/download/attachments/58591566/IgnitionUserManualLogo-8.1.png?version\u003d1\u0026modificationDate\u003d1605544080000\u0026api\u003dv2"
+        },
+        "type": "ia.display.image"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "justify": "space-between",
+      "style": {
+        "backgroundColor": "#2B2B2B"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

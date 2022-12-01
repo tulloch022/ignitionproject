@@ -1,0 +1,4 @@
+select 
+	goldusers_users.id
+,	goldusers_users.username
+from goldusers_users

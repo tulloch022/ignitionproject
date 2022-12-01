@@ -1,0 +1,3 @@
+Select tasks.task_id as 'taskID'
+From tasks
+Where tasks.user_id = :UserID and tasks.complete_date is Null

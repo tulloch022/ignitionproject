@@ -1,0 +1,5 @@
+SELECT COUNT(*)
+FROM tasks
+WHERE station_number = :stationNumber
+	AND user_id = :userID
+	AND complete_date IS NULL

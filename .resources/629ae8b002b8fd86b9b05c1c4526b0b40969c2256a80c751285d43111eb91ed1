@@ -1,0 +1,9 @@
+Select 
+	tasks.task_name
+,	tasks.task_description
+,	goldusers_users.username
+from tasks
+left join goldusers_users
+on goldusers_users.id = tasks.user_id
+where tasks.station_number = :StationNr 
+

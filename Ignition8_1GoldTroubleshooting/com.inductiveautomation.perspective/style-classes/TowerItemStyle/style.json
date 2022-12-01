@@ -1,0 +1,18 @@
+{
+  "base": {
+    "style": {
+      "paddingBottom": "3px",
+      "paddingLeft": "3px",
+      "paddingRight": "3px",
+      "paddingTop": "3px"
+    }
+  },
+  "variants": [
+    {
+      "pseudo": "hover",
+      "style": {
+        "backgroundColor": "#D5D5D5"
+      }
+    }
+  ]
+}

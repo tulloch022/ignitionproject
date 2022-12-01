@@ -1,0 +1,30 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Motor"
+        },
+        "position": {
+          "height": 100,
+          "width": 100,
+          "x": 319,
+          "y": 286
+        },
+        "props": {
+          "style": {
+            "display": "none"
+          }
+        },
+        "type": "ia.symbol.motor"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.coord"
+  }
+}

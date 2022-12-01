@@ -1,0 +1,96 @@
+{
+  "custom": {},
+  "params": {
+    "LabelText": "",
+    "TagName": "",
+    "TowerNumber": ""
+  },
+  "propConfig": {
+    "params.LabelText": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.TagName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.TowerNumber": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 108,
+      "width": 291
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "100px",
+          "grow": 2
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.LabelText"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "fontSize": "16px",
+            "fontWeight": "bolder",
+            "paddingLeft": "10px"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "LedDisplay"
+        },
+        "position": {
+          "basis": "128px",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "mode": "indirect",
+                "references": {
+                  "1": "{view.params.TowerNumber}",
+                  "2": "{view.params.TagName}"
+                },
+                "tagPath": "[default]Refrigeration/Tower{1}/{2}"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "numberFormat": "0"
+        },
+        "type": "ia.display.led-display"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "classes": "TowerItemStyle"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

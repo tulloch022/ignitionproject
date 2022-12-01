@@ -1,0 +1,216 @@
+{
+  "custom": {},
+  "events": null,
+  "params": {
+    "CompressorNum": 1
+  },
+  "permissions": null,
+  "propConfig": {
+    "params.CompressorNum": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 161,
+      "width": 443
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label",
+          "rotate": {
+            "angle": 270
+          }
+        },
+        "position": {
+          "basis": "50px",
+          "display": true,
+          "grow": 0,
+          "shrink": 1
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "\"C\"+{view.params.CompressorNum}"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "alignVertical": "center",
+          "style": {
+            "fontSize": "30px",
+            "fontWeight": "bolder",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "height": 0.1239,
+              "width": 1,
+              "x": 0,
+              "y": 0.0497
+            },
+            "props": {
+              "alignVertical": "center",
+              "style": {
+                "fontWeight": "bolder",
+                "textAlign": "center"
+              },
+              "text": "Pressure Discharge"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "MovingAnalogIndicator"
+            },
+            "position": {
+              "height": 0.7543,
+              "width": 1,
+              "x": 0,
+              "y": 0.2117
+            },
+            "propConfig": {
+              "props.processValue": {
+                "binding": {
+                  "config": {
+                    "mode": "indirect",
+                    "references": {
+                      "1": "{view.params.CompressorNum}"
+                    },
+                    "tagPath": "[default]Refrigeration/Compressor{1}/pressureDischarge"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "desiredHigh": 100,
+              "desiredLow": 40,
+              "highAlarm": 90,
+              "highHighAlarm": null,
+              "highInterlock": null,
+              "label": {
+                "visible": true
+              },
+              "lowAlarm": 10,
+              "lowInterlock": null,
+              "lowLowAlarm": null,
+              "maxValue": 180,
+              "reverseIndicator": true
+            },
+            "type": "ia.display.moving-analog-indicator"
+          }
+        ],
+        "meta": {
+          "name": "CoordinateContainer"
+        },
+        "position": {
+          "basis": "200px",
+          "display": true,
+          "grow": 1,
+          "shrink": 1
+        },
+        "props": {
+          "mode": "percent"
+        },
+        "type": "ia.container.coord"
+      },
+      {
+        "meta": {
+          "name": "MultiStateButton"
+        },
+        "position": {
+          "basis": "80px",
+          "display": true,
+          "grow": 0,
+          "shrink": 1
+        },
+        "propConfig": {
+          "props.controlValue": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "mode": "indirect",
+                "references": {
+                  "1": "{view.params.CompressorNum}"
+                },
+                "tagPath": "[default]Refrigeration/Compressor{1}/hoa"
+              },
+              "type": "tag"
+            }
+          },
+          "props.indicatorValue": {
+            "binding": {
+              "config": {
+                "path": "this.props.controlValue"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "states": [
+            {
+              "selectedStyle": {
+                "backgroundColor": "#FFF809",
+                "classes": ""
+              },
+              "text": "Hand",
+              "unselectedStyle": {
+                "classes": ""
+              },
+              "value": 2
+            },
+            {
+              "selectedStyle": {
+                "backgroundColor": "#FF2709",
+                "classes": ""
+              },
+              "text": "Off",
+              "unselectedStyle": {
+                "classes": ""
+              },
+              "value": 0
+            },
+            {
+              "selectedStyle": {
+                "backgroundColor": "#62ED2A",
+                "classes": ""
+              },
+              "text": "Auto",
+              "unselectedStyle": {
+                "classes": ""
+              },
+              "value": 1
+            }
+          ]
+        },
+        "type": "ia.input.multi-state-button"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "borderStyle": "solid"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

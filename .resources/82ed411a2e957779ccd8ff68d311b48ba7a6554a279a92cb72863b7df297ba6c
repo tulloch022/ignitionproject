@@ -1,0 +1,332 @@
+{
+  "custom": {},
+  "params": {
+    "stationNumber": 3
+  },
+  "propConfig": {
+    "params.stationNumber": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "50px",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "stationNumber": "{view.params.stationNumber}"
+                    },
+                    "tagPath": "[default]Stations/Station {stationNumber}/Station Name"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "basis": "50px",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "stationNumber": "{view.params.stationNumber}"
+                    },
+                    "tagPath": "[default]Stations/Station {stationNumber}/Flow Rate"
+                  },
+                  "transforms": [
+                    {
+                      "formatType": "numeric",
+                      "formatValue": "number",
+                      "type": "format"
+                    }
+                  ],
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_1"
+            },
+            "position": {
+              "basis": "50px",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "stationNumber": "{view.params.stationNumber}"
+                    },
+                    "tagPath": "[default]Stations/Station {stationNumber}/State"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": "Off",
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": 2,
+                          "output": "Faulted"
+                        },
+                        {
+                          "input": 1,
+                          "output": "Auto"
+                        },
+                        {
+                          "input": 0,
+                          "output": "Off"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Image"
+            },
+            "position": {
+              "basis": "100px",
+              "grow": 1
+            },
+            "props": {
+              "source": "/system/images/Builtin/Pump/Pump 1.png",
+              "style": {
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.image"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "size": "large"
+        },
+        "props": {
+          "alignItems": "center",
+          "justify": "space-evenly"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "50px",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "stationNumber": "{view.params.stationNumber}"
+                    },
+                    "tagPath": "[default]Stations/Station {stationNumber}/Station Name"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "basis": "50px",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "stationNumber": "{view.params.stationNumber}"
+                    },
+                    "tagPath": "[default]Stations/Station {stationNumber}/Flow Rate"
+                  },
+                  "transforms": [
+                    {
+                      "formatType": "numeric",
+                      "formatValue": "number",
+                      "type": "format"
+                    }
+                  ],
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_1"
+            },
+            "position": {
+              "basis": "50px",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "stationNumber": "{view.params.stationNumber}"
+                    },
+                    "tagPath": "[default]Stations/Station {stationNumber}/State"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": "Off",
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": 2,
+                          "output": "Faulted"
+                        },
+                        {
+                          "input": 1,
+                          "output": "Auto"
+                        },
+                        {
+                          "input": 0,
+                          "output": "Off"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_0"
+        },
+        "props": {
+          "alignItems": "center",
+          "direction": "column",
+          "justify": "space-evenly"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "props.style.backgroundColor": {
+        "binding": {
+          "config": {
+            "fallbackDelay": 2.5,
+            "mode": "indirect",
+            "references": {
+              "stationNumber": "{view.params.stationNumber}"
+            },
+            "tagPath": "[default]Stations/Station {stationNumber}/State"
+          },
+          "transforms": [
+            {
+              "fallback": "#00000000",
+              "inputType": "scalar",
+              "mappings": [
+                {
+                  "input": 2,
+                  "output": "#FF0000"
+                }
+              ],
+              "outputType": "color",
+              "type": "map"
+            }
+          ],
+          "type": "tag"
+        }
+      }
+    },
+    "type": "ia.container.breakpt"
+  }
+}

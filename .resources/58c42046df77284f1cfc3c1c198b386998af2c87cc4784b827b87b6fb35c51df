@@ -1,0 +1,116 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 834,
+      "width": 1112
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "FlexRepeater"
+        },
+        "position": {
+          "basis": "400px",
+          "grow": 1,
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.instances": {
+            "binding": {
+              "config": {
+                "parameters": {
+                  "User": "{session.props.auth.user.userName}"
+                },
+                "queryPath": "TasksPersepctive"
+              },
+              "transforms": [
+                {
+                  "code": "\tlist \u003d []\n\ttrue \u003d  True\n\tfalse \u003d False\n\tfor row in range (value.getRowCount()):\n\t\tlist.append({\n\t\t  \"instanceStyle\": {\n\t\t    \"classes\": \"\"\n\t\t  },\n\t\t  \"instancePosition\": {},\n\t\t  \"Text1\": value.getValueAt(row,\"task_name\"),\n\t\t  \"Text2\": value.getValueAt(row,\"task_description\"),\n\t\t  \"Text3\": value.getValueAt(row,\"assign_date\"),\n\t\t  \"Text4\": value.getValueAt(row,\"station_name\"),\n\t\t  \"Visable3\": true,\n\t\t  \"VisableImage\": false\n\t\t})\n\treturn list",
+                  "type": "script"
+                }
+              ],
+              "type": "query"
+            }
+          }
+        },
+        "props": {
+          "alignContent": "flex-end",
+          "direction": "column",
+          "path": "TemplateLabel",
+          "useDefaultViewWidth": false
+        },
+        "type": "ia.display.flex-repeater"
+      },
+      {
+        "meta": {
+          "name": "FlexRepeater_1"
+        },
+        "position": {
+          "basis": "400px",
+          "grow": 1,
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.instances": {
+            "binding": {
+              "config": {
+                "queryPath": "SelectStations ByOrder"
+              },
+              "transforms": [
+                {
+                  "code": "\tlist \u003d []\n\ttrue \u003d  True\n\tfalse \u003d  False\n\tfor row in range (value.getRowCount()):\n\t\tlist.append({\n\t\t  \"instanceStyle\": {\n\t\t    \"classes\": \"\"\n\t\t  },\n\t\t  \"instancePosition\": {},\n\t\t  \"StationNr\": value.getValueAt(row,\"station_number\")\n\t\t})\n\treturn list",
+                  "type": "script"
+                }
+              ],
+              "type": "query"
+            }
+          }
+        },
+        "props": {
+          "alignContent": "flex-start",
+          "direction": "column-reverse",
+          "path": "templateBreakpoint",
+          "style": {
+            "overflow": "scroll"
+          },
+          "useDefaultViewWidth": false
+        },
+        "type": "ia.display.flex-repeater"
+      },
+      {
+        "meta": {
+          "name": "Motor"
+        },
+        "position": {
+          "basis": "100px"
+        },
+        "props": {
+          "style": {
+            "display": "table"
+          }
+        },
+        "type": "ia.symbol.motor"
+      },
+      {
+        "meta": {
+          "name": "Motor_0"
+        },
+        "position": {
+          "basis": "100px"
+        },
+        "type": "ia.symbol.motor"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "wrap": "wrap"
+    },
+    "type": "ia.container.flex"
+  }
+}

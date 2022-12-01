@@ -1,0 +1,4 @@
+UPDATE tasks
+SET complete_date = CURRENT_TIMESTAMP
+WHERE task_ID = :taskID
+AND complete_date is NULL

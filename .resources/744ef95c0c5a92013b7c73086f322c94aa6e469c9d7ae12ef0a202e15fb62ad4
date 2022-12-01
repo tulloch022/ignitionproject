@@ -1,0 +1,9 @@
+SELECT
+	task_id,
+	task_name,
+	task_description,
+	user_id,
+	station_number,
+	assign_date,
+	complete_date
+FROM tasks

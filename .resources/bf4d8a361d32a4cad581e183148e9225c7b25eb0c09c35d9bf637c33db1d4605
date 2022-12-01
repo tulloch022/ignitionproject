@@ -1,0 +1,18 @@
+{
+  "type": "AnyOf",
+  "securityLevels": [
+    {
+      "name": "Authenticated",
+      "children": []
+    },
+    {
+      "name": "SecurityZones",
+      "children": [
+        {
+          "name": "Gold",
+          "children": []
+        }
+      ]
+    }
+  ]
+}

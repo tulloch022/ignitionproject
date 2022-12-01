@@ -1,0 +1,3 @@
+SELECT	station_number AS 'StationNumber',
+		:parameter_user_id AS 'User'
+FROM stations

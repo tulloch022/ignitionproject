@@ -1,0 +1,372 @@
+{
+  "custom": {
+    "data": {
+      "$": [
+        "ds",
+        192,
+        1669822241591
+      ],
+      "$columns": [
+        {
+          "data": [],
+          "name": "task_id",
+          "type": "Integer"
+        },
+        {
+          "data": [],
+          "name": "task_name",
+          "type": "String"
+        },
+        {
+          "data": [],
+          "name": "task_description",
+          "type": "String"
+        },
+        {
+          "data": [],
+          "name": "user_id",
+          "type": "Integer"
+        },
+        {
+          "data": [],
+          "name": "station_number",
+          "type": "Integer"
+        },
+        {
+          "data": [],
+          "name": "assign_date",
+          "type": "Date"
+        },
+        {
+          "data": [],
+          "name": "complete_date",
+          "type": "Date"
+        },
+        {
+          "data": [],
+          "name": "station_number",
+          "type": "Integer"
+        },
+        {
+          "data": [],
+          "name": "station_name",
+          "type": "String"
+        },
+        {
+          "data": [],
+          "name": "user",
+          "type": "String"
+        }
+      ]
+    }
+  },
+  "params": {
+    "task_id": 42
+  },
+  "propConfig": {
+    "custom.data": {
+      "binding": {
+        "config": {
+          "parameters": {
+            "parameter_task_id": "{view.params.task_id}"
+          },
+          "queryPath": "DB_Select_tasks_perspective"
+        },
+        "type": "query"
+      },
+      "persistent": true
+    },
+    "params.task_id": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 246,
+      "width": 872
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "LabelTaskName"
+        },
+        "position": {
+          "breakpoints": [
+            {
+              "colIndex": 0,
+              "name": "sm",
+              "order": 1,
+              "rowIndex": 0,
+              "span": 12
+            },
+            {
+              "colIndex": 0,
+              "name": "md",
+              "order": 1,
+              "rowIndex": 0,
+              "span": 4
+            },
+            {
+              "colIndex": 0,
+              "name": "lg",
+              "order": 0,
+              "rowIndex": 0,
+              "span": 2
+            }
+          ],
+          "height": 40
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "\u0027Task Name: \u0027 + {view.custom.data}[\u0027task_name\u0027]"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "classes": "Task_label"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "LabelTaskDescription"
+        },
+        "position": {
+          "breakpoints": [
+            {
+              "colIndex": 0,
+              "name": "sm",
+              "order": 0,
+              "rowIndex": 1,
+              "span": 12
+            },
+            {
+              "colIndex": 0,
+              "name": "md",
+              "order": 1,
+              "rowIndex": 0,
+              "span": 4
+            },
+            {
+              "colIndex": 2,
+              "name": "lg",
+              "order": 1,
+              "rowIndex": 0,
+              "span": 2
+            }
+          ],
+          "height": 40
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "\u0027Task Description: \u0027 + {view.custom.data}[\u0027task_description\u0027]"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "classes": "Task_label"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "LabelDateAssigned"
+        },
+        "position": {
+          "breakpoints": [
+            {
+              "colIndex": 0,
+              "name": "sm",
+              "order": 1,
+              "rowIndex": 2,
+              "span": 12
+            },
+            {
+              "colIndex": 0,
+              "name": "md",
+              "order": 1,
+              "rowIndex": 0,
+              "span": 4
+            },
+            {
+              "colIndex": 4,
+              "name": "lg",
+              "order": 2,
+              "rowIndex": 0,
+              "span": 3
+            }
+          ],
+          "height": 40
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "\u0027Date Assigned: \u0027 + {view.custom.data}[\u0027assign_date\u0027]"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "classes": "Task_label"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "LabelStationName"
+        },
+        "position": {
+          "breakpoints": [
+            {
+              "colIndex": 0,
+              "name": "sm",
+              "order": 0,
+              "rowIndex": 3,
+              "span": 12
+            },
+            {
+              "colIndex": 0,
+              "name": "md",
+              "order": 1,
+              "rowIndex": 1,
+              "span": 4
+            },
+            {
+              "colIndex": 7,
+              "name": "lg",
+              "order": 3,
+              "rowIndex": 0,
+              "span": 3
+            }
+          ],
+          "height": 40
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "\u0027Station Name: \u0027 + {view.custom.data}[\u0027station_name\u0027]"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "classes": "Task_label"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tcomplete_date \u003d system.date.now()\n\ttask_id \u003d self.view.params.task_id\n\tparameters \u003d {\t\u0027parameter_complete_date\u0027:complete_date,\n\t\t\t\t\t\u0027parameter_task_id\u0027:task_id\n\t\t\t\t\t}\n\t\n\tsystem.db.runNamedQuery(\u0027DB_Update_task_completed\u0027, parameters)\n\t\n\tself.view.refreshBinding(\"custom.data\")\n\tsystem.perspective.sendMessage(\u0027update_data\u0027, scope\u003d\u0027page\u0027)\n\t\n\tself.props.value \u003d 0"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "ButtonTaskCompleted"
+        },
+        "position": {
+          "breakpoints": [
+            {
+              "colIndex": 0,
+              "name": "sm",
+              "order": 1,
+              "rowIndex": 4,
+              "span": 12
+            },
+            {
+              "colIndex": 4,
+              "name": "md",
+              "order": 1,
+              "rowIndex": 1,
+              "span": 4
+            },
+            {
+              "colIndex": 0,
+              "name": "lg",
+              "order": 3.5,
+              "rowIndex": 0,
+              "span": 2
+            }
+          ],
+          "height": 40
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "expression": "if({view.custom.data}[\u0027complete_date\u0027] !\u003d Null, false, true)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "text": "Task Complete",
+          "value": 0
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "props.style.backgroundColor": {
+        "binding": {
+          "config": {
+            "fallbackDelay": 2.5,
+            "mode": "indirect",
+            "references": {
+              "1": "{view.custom.data}[\u0027station_number\u0027]"
+            },
+            "tagPath": "[default]GoldTest/Station {1}/State"
+          },
+          "transforms": [
+            {
+              "fallback": "#FFFFFF",
+              "inputType": "scalar",
+              "mappings": [
+                {
+                  "input": 2,
+                  "output": "#FF0000"
+                }
+              ],
+              "outputType": "color",
+              "type": "map"
+            }
+          ],
+          "type": "tag"
+        }
+      }
+    },
+    "type": "ia.container.column"
+  }
+}

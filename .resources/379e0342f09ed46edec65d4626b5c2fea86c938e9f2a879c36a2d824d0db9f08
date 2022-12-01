@@ -1,0 +1,5 @@
+SELECT
+	station_number
+FROM
+	tasks
+WHERE task_id = :taskID

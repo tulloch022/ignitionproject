@@ -1,0 +1,18 @@
+{
+  "scope": "C",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "template.bin",
+    "droptarget.bin",
+    "thumbnail.png"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "admin",
+      "timestamp": "2019-06-27T19:41:38Z"
+    },
+    "lastModificationSignature": "24e4692026ead5354180ba9cd693bae5f4958a0e45b39d3493a5a904590cf2b0"
+  }
+}

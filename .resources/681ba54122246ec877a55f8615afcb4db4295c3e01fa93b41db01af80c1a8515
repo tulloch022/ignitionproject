@@ -1,0 +1,8 @@
+SELECT
+	t.task_id
+FROM
+	tasks t
+LEFT JOIN goldusers_users go on t.user_id = go.id
+WHERE
+	complete_date IS NULL
+AND go.username = :username

@@ -1,0 +1,3 @@
+SELECT * FROM alarm_events
+where source like '%Station ' :Station '/%' and  eventtype =0
+ORDER BY eventtime DESC Limit 10

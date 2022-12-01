@@ -1,0 +1,19 @@
+{
+  "scope": "C",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "window.bin",
+    "thumbnail.png"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "admin",
+      "timestamp": "2020-11-11T01:57:36Z"
+    },
+    "xml-format-version": 1,
+    "parameter-names": "TowerNumber",
+    "lastModificationSignature": "164427768a7b59144af564a6649b3333083fcb75c0ba6e1e782b06086b21c0db"
+  }
+}

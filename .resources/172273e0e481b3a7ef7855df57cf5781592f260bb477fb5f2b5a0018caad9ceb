@@ -1,0 +1,8 @@
+select 
+	goldusers_users.id
+,	goldusers_users.username
+from goldusers_users
+union 
+select 
+	0 as id
+,	'All Incomplete Tasks' as username

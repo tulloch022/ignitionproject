@@ -1,0 +1,9 @@
+SELECT 
+	t.task_name,
+	t.task_description,
+	t.assign_date,
+	s.station_name
+FROM tasks t
+INNER JOIN stations s ON t.station_number = s.station_number
+WHERE
+	t.task_id = :taskID

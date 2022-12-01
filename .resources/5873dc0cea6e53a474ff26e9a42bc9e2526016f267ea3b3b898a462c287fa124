@@ -1,0 +1,77 @@
+{
+  "pages": {
+    "/": {
+      "docks": {
+        "bottom": [
+          {
+            "anchor": "fixed",
+            "autoBreakpoint": 480,
+            "content": "push",
+            "handle": "hide",
+            "iconUrl": "",
+            "id": "",
+            "modal": false,
+            "resizable": false,
+            "show": "visible",
+            "size": 150,
+            "viewParams": {},
+            "viewPath": "ffgh"
+          }
+        ]
+      },
+      "title": "Stations \u0026 tasks",
+      "viewPath": "StationsTasks"
+    },
+    "/Breakpoint": {
+      "docks": {
+        "bottom": [
+          {
+            "anchor": "fixed",
+            "autoBreakpoint": 480,
+            "content": "push",
+            "handle": "hide",
+            "iconUrl": "",
+            "id": "",
+            "modal": false,
+            "resizable": false,
+            "show": "visible",
+            "size": 150,
+            "viewParams": {},
+            "viewPath": "ffgh"
+          }
+        ]
+      },
+      "title": "",
+      "viewPath": "Breakpoint"
+    },
+    "/Taskview": {
+      "title": "Taskview",
+      "viewPath": "Taskview"
+    },
+    "/new-page": {
+      "docks": {
+        "bottom": [
+          {
+            "anchor": "fixed",
+            "autoBreakpoint": 480,
+            "content": "push",
+            "handle": "hide",
+            "iconUrl": "",
+            "id": "",
+            "modal": false,
+            "resizable": false,
+            "show": "visible",
+            "size": 150,
+            "viewParams": {},
+            "viewPath": "ffgh"
+          }
+        ]
+      },
+      "title": "",
+      "viewPath": ""
+    }
+  },
+  "sharedDocks": {
+    "cornerPriority": "top-bottom"
+  }
+}

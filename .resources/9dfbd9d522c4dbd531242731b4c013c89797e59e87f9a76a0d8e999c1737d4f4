@@ -1,0 +1,16 @@
+SELECT TOP (1000) [task_id]
+      ,[task_name]
+      ,[task_description]
+      ,[user_id]
+	  ,u.username
+	  ,u.fname + ' ' + u.lname as 'name'
+      ,t.[station_number]
+	  ,s.station_name
+      ,[assign_date]
+  FROM [ignition8.1goldtest].[dbo].[tasks] t
+  left join [ignition8.1goldtest].[dbo].[goldusers_users] u
+  on u.id = t.user_id
+  left join [ignition8.1goldtest].[dbo].[stations] s
+  on s.station_number = t.station_number
+  where complete_date is null
+  and t.station_number =:station

@@ -1,0 +1,80 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 464,
+      "width": 195
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "MenuTree"
+        },
+        "position": {
+          "height": 1,
+          "width": 1
+        },
+        "props": {
+          "items": [
+            {
+              "items": [],
+              "label": {
+                "icon": {
+                  "path": "material/home"
+                },
+                "text": "Towers Home"
+              },
+              "navIcon": {
+                "color": "#6C6C6C",
+                "path": ""
+              },
+              "showHeader": true,
+              "target": "/"
+            },
+            {
+              "items": [],
+              "label": {
+                "icon": {
+                  "path": "material/timeline"
+                },
+                "text": "Compressors"
+              },
+              "navIcon": {
+                "color": "#6C6C6C",
+                "path": ""
+              },
+              "showHeader": true,
+              "target": "/compressors"
+            },
+            {
+              "items": [],
+              "label": {
+                "icon": {
+                  "path": "material/satellite"
+                },
+                "text": "Map"
+              },
+              "navIcon": {
+                "color": "#6C6C6C",
+                "path": ""
+              },
+              "showHeader": true,
+              "target": "/map"
+            }
+          ]
+        },
+        "type": "ia.navigation.menutree"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "mode": "percent"
+    },
+    "type": "ia.container.coord"
+  }
+}

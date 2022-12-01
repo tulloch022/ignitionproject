@@ -1,0 +1,114 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "FlexRepeater"
+            },
+            "propConfig": {
+              "props.instances": {
+                "binding": {
+                  "config": {
+                    "parameters": {
+                      "username": "{session.props.auth.user.userName}"
+                    },
+                    "polling": {
+                      "enabled": true,
+                      "rate": "5"
+                    },
+                    "queryPath": "Current User Tasks"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\ttasks \u003d system.dataset.toPyDataSet(value)\n\tinstances \u003d []\n\tfor task in tasks:\n\t\tstation \u003d {}\n\t\tstation[\u0027taskID\u0027] \u003d task[0]\n\t\tinstances.append(station)\n\treturn instances",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "query"
+                }
+              }
+            },
+            "props": {
+              "direction": "column",
+              "elementPosition": {
+                "basis": "auto",
+                "grow": 0,
+                "shrink": 0
+              },
+              "path": "Task",
+              "useDefaultViewHeight": false,
+              "useDefaultViewWidth": false
+            },
+            "type": "ia.display.flex-repeater"
+          },
+          {
+            "meta": {
+              "name": "FlexRepeater_0"
+            },
+            "position": {
+              "tabIndex": 1
+            },
+            "propConfig": {
+              "props.instances": {
+                "binding": {
+                  "config": {
+                    "polling": {
+                      "enabled": true,
+                      "rate": "5"
+                    },
+                    "queryPath": "Stations"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tstations \u003d system.dataset.toPyDataSet(value)\n\tfaulted \u003d []\n\tinstances \u003d []\n\tfor num in stations:\n\t\tstation \u003d {}\n\t\tstation[\u0027stationNumber\u0027] \u003d num[0]\n\t\tisFaulted \u003d system.tag.readBlocking([\"[default]Stations/Station \" + str(num[0]) + \"/State\"])[0].value\n\t\tif isFaulted \u003d\u003d 2:\n\t\t\tfaulted.append(station)\n\t\telse:\n\t\t\tinstances.append(station)\n\treturn instances + faulted",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "query"
+                }
+              }
+            },
+            "props": {
+              "direction": "column",
+              "elementPosition": {
+                "basis": "auto",
+                "grow": 0,
+                "shrink": 0
+              },
+              "path": "Station",
+              "useDefaultViewHeight": false,
+              "useDefaultViewWidth": false
+            },
+            "type": "ia.display.flex-repeater"
+          }
+        ],
+        "meta": {
+          "name": "TabContainer"
+        },
+        "position": {
+          "basis": "300px",
+          "grow": 1
+        },
+        "props": {
+          "tabs": [
+            "Tasks",
+            "Stations"
+          ]
+        },
+        "type": "ia.container.tab"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "justify": "center"
+    },
+    "type": "ia.container.flex"
+  }
+}

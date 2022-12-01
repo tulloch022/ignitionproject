@@ -1,0 +1,548 @@
+{
+  "custom": {},
+  "params": {},
+  "propConfig": {
+    "custom.key": {
+      "persistent": true
+    }
+  },
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "height": 0.275,
+              "width": 1
+            },
+            "props": {
+              "style": {
+                "fontSize": "32px",
+                "textAlign": "center"
+              },
+              "text": "Compressor Events"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tcompressor \u003d self.getSibling(\"RadioGroup\").props.value\n\tpriority \u003d \"High\" if self.getSibling(\"Checkbox\").props.selected else \"Medium\"\n\teventType \u003d \"Shutdown Event\" if self.getSibling(\"Checkbox_0\").props.selected else \"Startup Event\"\n\t\n\tpayload \u003d {\"Compressor\":compressor, \"Priority\":priority, \"Event Type\":eventType, \"Date Added\":system.date.now()}\n\t\n\tsystem.perspective.sendMessage(\"Add Row\",payload)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Button"
+            },
+            "position": {
+              "height": 0.19,
+              "width": 0.115,
+              "x": 0.8248,
+              "y": 0.4683
+            },
+            "props": {
+              "text": "Submit"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "meta": {
+              "name": "Checkbox"
+            },
+            "position": {
+              "height": 0.24,
+              "width": 0.1724,
+              "x": 0.4199,
+              "y": 0.4532
+            },
+            "props": {
+              "text": "High Priority"
+            },
+            "scripts": {
+              "customMethods": [],
+              "extensionFunctions": null,
+              "messageHandlers": [
+                {
+                  "messageType": "Add Row",
+                  "pageScope": true,
+                  "script": "\tself.props.selected \u003d False",
+                  "sessionScope": false,
+                  "viewScope": false
+                }
+              ]
+            },
+            "type": "ia.input.checkbox"
+          },
+          {
+            "meta": {
+              "name": "Checkbox_0"
+            },
+            "position": {
+              "height": 0.24,
+              "width": 0.1662,
+              "x": 0.5936,
+              "y": 0.453
+            },
+            "props": {
+              "text": "Shutdown"
+            },
+            "scripts": {
+              "customMethods": [],
+              "extensionFunctions": null,
+              "messageHandlers": [
+                {
+                  "messageType": "Add Row",
+                  "pageScope": true,
+                  "script": "\tself.props.selected \u003d False",
+                  "sessionScope": false,
+                  "viewScope": false
+                }
+              ]
+            },
+            "type": "ia.input.checkbox"
+          },
+          {
+            "meta": {
+              "name": "RadioGroup"
+            },
+            "position": {
+              "height": 0.5332,
+              "width": 0.25,
+              "x": 0.1338,
+              "y": 0.3531
+            },
+            "props": {
+              "radios": [
+                {
+                  "selected": true,
+                  "text": "Compressor 1",
+                  "value": "Compressor 1"
+                },
+                {
+                  "selected": false,
+                  "text": "Compressor 2",
+                  "value": "Compressor 2"
+                }
+              ],
+              "value": "Compressor 1"
+            },
+            "scripts": {
+              "customMethods": [],
+              "extensionFunctions": null,
+              "messageHandlers": [
+                {
+                  "messageType": "Add Row",
+                  "pageScope": true,
+                  "script": "\tself.props.radios[0].selected \u003d True",
+                  "sessionScope": false,
+                  "viewScope": false
+                }
+              ]
+            },
+            "type": "ia.input.radio-group"
+          }
+        ],
+        "meta": {
+          "name": "CoordinateContainer"
+        },
+        "position": {
+          "basis": "150px"
+        },
+        "props": {
+          "mode": "percent"
+        },
+        "type": "ia.container.coord"
+      },
+      {
+        "events": {
+          "component": {
+            "onEditCellCommit": {
+              "config": {
+                "script": "\t\n\trowToChange \u003d event.row\n\tcolToChange \u003d event.column\n\t\n\tself.props.data[rowToChange][colToChange] \u003d event.value"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Table"
+        },
+        "position": {
+          "basis": "400px",
+          "grow": 1
+        },
+        "props": {
+          "columns": [
+            {
+              "align": "center",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": true,
+              "field": "Compressor",
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "justify": "auto",
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "#62A3F6",
+                  "linecap": "round",
+                  "width": 5
+                },
+                "max": 100,
+                "track": {
+                  "color": "#DADADA",
+                  "linecap": "round",
+                  "width": 2
+                },
+                "value": {
+                  "color": "#7D7D7D",
+                  "show": true
+                }
+              },
+              "render": "auto",
+              "resizable": true,
+              "sortable": true,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "#2196F3",
+                  "unselected": "#FFFFFF"
+                }
+              },
+              "viewParams": {},
+              "viewPath": "",
+              "width": ""
+            },
+            {
+              "align": "center",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": true,
+              "field": "Priority",
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "justify": "auto",
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "#62A3F6",
+                  "linecap": "round",
+                  "width": 5
+                },
+                "max": 100,
+                "track": {
+                  "color": "#DADADA",
+                  "linecap": "round",
+                  "width": 2
+                },
+                "value": {
+                  "color": "#7D7D7D",
+                  "show": true
+                }
+              },
+              "render": "auto",
+              "resizable": true,
+              "sortable": true,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "#2196F3",
+                  "unselected": "#FFFFFF"
+                }
+              },
+              "viewParams": {},
+              "viewPath": "",
+              "width": ""
+            },
+            {
+              "align": "center",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": false,
+              "field": "Event Type",
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "justify": "auto",
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "max": 100,
+                "min": 0,
+                "track": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "value": {
+                  "enabled": true,
+                  "format": "0,0.##",
+                  "justify": "center",
+                  "style": {
+                    "classes": ""
+                  }
+                }
+              },
+              "render": "auto",
+              "resizable": true,
+              "sort": "none",
+              "sortable": true,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "",
+                  "unselected": ""
+                }
+              },
+              "viewParams": {},
+              "viewPath": "",
+              "visible": true,
+              "width": ""
+            },
+            {
+              "align": "center",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY HH:mm:ss",
+              "editable": false,
+              "field": "Date Added",
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "justify": "auto",
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "max": 100,
+                "min": 0,
+                "track": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "value": {
+                  "enabled": true,
+                  "format": "0,0.##",
+                  "justify": "center",
+                  "style": {
+                    "classes": ""
+                  }
+                }
+              },
+              "render": "date",
+              "resizable": true,
+              "sort": "none",
+              "sortable": true,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "",
+                  "unselected": ""
+                }
+              },
+              "viewParams": {},
+              "viewPath": "",
+              "visible": true,
+              "width": ""
+            }
+          ],
+          "data": [
+            {
+              "Compressor": "Compressor 2",
+              "Date Added": {
+                "$": [
+                  "ts",
+                  192,
+                  1605058986017
+                ],
+                "$ts": 1605058986011
+              },
+              "Event Type": "Startup Event",
+              "Priority": "Medium"
+            },
+            {
+              "Compressor": "Compressor 2",
+              "Date Added": {
+                "$": [
+                  "ts",
+                  192,
+                  1605058988960
+                ],
+                "$ts": 1605058988959
+              },
+              "Event Type": "Startup Event",
+              "Priority": "High"
+            },
+            {
+              "Compressor": "Compressor 1",
+              "Date Added": {
+                "$": [
+                  "ts",
+                  192,
+                  1605058990288
+                ],
+                "$ts": 1605058990287
+              },
+              "Event Type": "Shutdown Event",
+              "Priority": "Medium"
+            },
+            {
+              "Compressor": "Compressor 2",
+              "Date Added": {
+                "$": [
+                  "ts",
+                  192,
+                  1605058995646
+                ],
+                "$ts": 1605058995646
+              },
+              "Event Type": "Shutdown Event",
+              "Priority": "Medium"
+            },
+            {
+              "Compressor": "Compressor 1",
+              "Date Added": {
+                "$": [
+                  "ts",
+                  192,
+                  1605058998066
+                ],
+                "$ts": 1605058998065
+              },
+              "Event Type": "Startup Event",
+              "Priority": "High"
+            },
+            {
+              "Compressor": "Compressor 1",
+              "Date Added": {
+                "$": [
+                  "ts",
+                  192,
+                  1662482815366
+                ],
+                "$ts": 1662482815359
+              },
+              "Event Type": "Shutdown Event",
+              "Priority": "Medium"
+            }
+          ],
+          "selection": {
+            "enableRowSelection": false,
+            "mode": "multiple interval"
+          }
+        },
+        "scripts": {
+          "customMethods": [],
+          "extensionFunctions": null,
+          "messageHandlers": [
+            {
+              "messageType": "Add Row",
+              "pageScope": true,
+              "script": "\tdata \u003d self.props.data[:]\n\t\n\tdata.append(payload)\n\t\n\tself.props.data \u003d data",
+              "sessionScope": false,
+              "viewScope": false
+            }
+          ]
+        },
+        "type": "ia.display.table"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

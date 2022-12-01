@@ -1,0 +1,4 @@
+SELECT stations.station_name 
+FROM tasks
+	INNER JOIN  stations ON tasks.station_number  =  stations.station_number 
+WHERE  task_id = :task_id

@@ -1,0 +1,4 @@
+select 
+	stations.station_number
+,	stations.station_name
+from stations

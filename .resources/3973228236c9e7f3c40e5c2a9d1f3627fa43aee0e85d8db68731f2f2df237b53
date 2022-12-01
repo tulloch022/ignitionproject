@@ -1,0 +1,4 @@
+SELECT Top 10 alarm_events.displaypath as 'Alarm Active', alarm_events.eventtime as 'Time'
+FROM alarm_events
+WHERE alarm_events.source Like '%Station ' + :StationNumber + '/%' and alarm_events.eventtype = 0
+Order By alarm_events.eventtime desc

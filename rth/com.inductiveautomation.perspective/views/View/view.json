@@ -1,0 +1,53 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Dropdown"
+        },
+        "position": {
+          "height": 36,
+          "width": 256,
+          "x": 278,
+          "y": 251
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "path": "session.props.locale"
+              },
+              "transforms": [
+                {
+                  "code": "\tif 0 \u003d\u003d 0:\n\t\treturn 2",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "options": [
+            {
+              "label": "\u0027label\u0027",
+              "value": 1
+            },
+            {
+              "label": "ok",
+              "value": 2
+            }
+          ]
+        },
+        "type": "ia.input.dropdown"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.coord"
+  }
+}

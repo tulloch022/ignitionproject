@@ -1,0 +1,6 @@
+Select Distinct goldusers_users.username as "Username", goldusers_users.fname as "FirstName", 
+goldusers_users.lname as "LastName", goldusers_user_ci.contact_value as "eMail" 
+From goldusers_users
+Inner Join goldusers_user_ci on goldusers_users.id = goldusers_user_ci.user_id
+Inner Join tasks on goldusers_users.id = tasks.user_id
+Where tasks.complete_date is null and tasks.station_number = :StationNumber

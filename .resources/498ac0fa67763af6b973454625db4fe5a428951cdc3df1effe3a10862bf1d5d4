@@ -1,0 +1,10 @@
+select 
+	stations.station_number as StationNr
+,	case when tasks.complete_date is null and tasks.user_id is not null and (tasks.user_id =  :UserID  or 0=:UserID )
+		then 1
+		else 0
+	end as Alarm
+from stations
+left join tasks
+on tasks.station_number = stations.station_number
+
